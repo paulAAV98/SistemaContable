@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemacontable.modelo;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,7 @@ import javax.persistence.Id;
  * @author Usuario
  */
 @Entity
-public class Persona {
+public class Persona implements Serializable {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
