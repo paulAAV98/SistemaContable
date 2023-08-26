@@ -5,6 +5,8 @@
 
 package com.mycompany.sistemacontable;
 
+import com.mycompany.sistemacontable.persistencia.ControladoraPersistencia;
+
 /**
  *
  * @author Usuario
@@ -12,6 +14,6 @@ package com.mycompany.sistemacontable;
 public class SistemaContable {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ControladoraPersistencia controlPersis = new ControladoraPersistencia();
     }
 }
