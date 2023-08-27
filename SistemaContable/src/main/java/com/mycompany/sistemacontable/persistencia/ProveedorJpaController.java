@@ -30,8 +30,8 @@ public class ProveedorJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
-    public ProveedorJpaController(){
+
+    public ProveedorJpaController() {
         emf = Persistence.createEntityManagerFactory("joyeriaJPAPU");
     }
 
@@ -138,5 +138,5 @@ public class ProveedorJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

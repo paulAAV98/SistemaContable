@@ -9,11 +9,9 @@ package com.mycompany.sistemacontable.persistencia;
  * @author Usuario
  */
 public class ControladoraPersistencia {
-    
-    PersonaJpaController perJpa; 
-    ProveedorJpaController proJpa; 
-    BalanceJpaController balJpa; 
-    
-    
-    
+
+    PersonaJpaController perJpa;
+    ProveedorJpaController proJpa;
+    BalanceJpaController balJpa;
+
 }

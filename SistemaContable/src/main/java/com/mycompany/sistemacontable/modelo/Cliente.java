@@ -18,21 +18,21 @@ import javax.persistence.OneToOne;
  * @author LegionXR
  */
 @Entity
-public class Cliente implements Serializable{
-     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="cli_id")
+public class Cliente implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cli_id")
     private int id;
-    
-    @Column(name="cli_cedula")
+
+    @Column(name = "cli_cedula")
     private String cedula;
-    
-    @Column(name="cli_correo")
+
+    @Column(name = "cli_correo")
     private String correo;
-    
-        
+
     @OneToOne
-    @JoinColumn(name="id_cli_per")
+    @JoinColumn(name = "id_cli_per")
     private Persona persona;
 
     public Cliente(int id, String cedula, String correo, Persona persona) {
@@ -42,13 +42,9 @@ public class Cliente implements Serializable{
         this.persona = persona;
     }
 
-  
-    
-
     public Cliente() {
     }
 
-    
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
@@ -80,7 +76,5 @@ public class Cliente implements Serializable{
     public Persona getPersona() {
         return persona;
     }
-    
-    
-    
+
 }

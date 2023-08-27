@@ -4,38 +4,33 @@
  */
 package com.mycompany.sistemacontable.modelo;
 
-
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 
 /**
  *
  * @author LegionXR
  */
 @Entity
-public class Detalle implements Serializable{
+public class Detalle implements Serializable {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="det_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "det_id")
     private int id;
-    
-    @Column(name="det_detalle")
+
+    @Column(name = "det_detalle")
     private String detalle;
-    
-    @Column(name="det_monto")
+
+    @Column(name = "det_monto")
     private double monto;
-    
-    @Column(name="det_tipo_pago")
+
+    @Column(name = "det_tipo_pago")
     private String tipo_pago;
-    
-   
 
     public Detalle(int id, String detalle, double monto, String tipo_pago) {
         this.id = id;
@@ -79,9 +74,4 @@ public class Detalle implements Serializable{
         this.tipo_pago = tipo_pago;
     }
 
-   
-     
-     
-     
-    
 }

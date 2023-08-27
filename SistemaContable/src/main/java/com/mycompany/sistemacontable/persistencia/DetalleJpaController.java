@@ -31,8 +31,8 @@ public class DetalleJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
-    public DetalleJpaController(){
+
+    public DetalleJpaController() {
         emf = Persistence.createEntityManagerFactory("joyeriaJPAPU");
     }
 
@@ -78,9 +78,9 @@ public class DetalleJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-           Detalle detalle;
+            Detalle detalle;
             try {
-                detalle= em.getReference(Detalle.class, id);
+                detalle = em.getReference(Detalle.class, id);
                 detalle.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The balance with id " + id + " no longer exists.", enfe);
@@ -139,5 +139,5 @@ public class DetalleJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

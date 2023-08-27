@@ -25,21 +25,21 @@ import javax.persistence.TemporalType;
  */
 @Entity
 public class Balance implements Serializable {
-    
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="bal_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "bal_id")
     private int id;
-    
+
     @Temporal(TemporalType.DATE)
-    @Column(name="bal_fecha")
+    @Column(name = "bal_fecha")
     private Date fecha;
-    
-    @Column(name="bal_total")
+
+    @Column(name = "bal_total")
     private double total;
-    
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name="codigo_balance")
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "codigo_balance")
     private List<Detalle> detalles;
 
     public Balance() {
@@ -49,10 +49,8 @@ public class Balance implements Serializable {
         this.id = id;
         this.fecha = fecha;
         this.total = total;
-        
-    }
 
-    
+    }
 
     public int getId() {
         return id;
@@ -82,9 +80,4 @@ public class Balance implements Serializable {
         this.detalles = detalles;
     }
 
-   
-    
-    
-    
-    
 }

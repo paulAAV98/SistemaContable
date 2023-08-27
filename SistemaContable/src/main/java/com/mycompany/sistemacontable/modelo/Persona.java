@@ -5,17 +5,13 @@
 package com.mycompany.sistemacontable.modelo;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -23,25 +19,24 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Persona implements Serializable {
-    
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="per_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "per_id")
     private int id;
-    
-    @Column(name="per_nombre")
+
+    @Column(name = "per_nombre")
     private String nombre;
-    
-    @Column(name="per_apellido")
+
+    @Column(name = "per_apellido")
     private String apellido;
-    
-    @Column(name="per_direccion")
+
+    @Column(name = "per_direccion")
     private String direccion;
-    
-    @Column(name="per_telefono")
+
+    @Column(name = "per_telefono")
     private String telefono;
-    
- 
+
     public Persona() {
     }
 
@@ -92,9 +87,5 @@ public class Persona implements Serializable {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
-    
-    
-    
-    
+
 }
