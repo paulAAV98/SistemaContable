@@ -13,4 +13,5 @@ public class ControladoraPersistencia {
     PersonaJpaController perJpa = new PersonaJpaController();
     ProveedorJpaController proJpa = new ProveedorJpaController();
     BalanceJpaController balJpa = new BalanceJpaController();
+    DetalleJpaController detJpa =new DetalleJpaController();
 }

@@ -6,11 +6,16 @@ package com.mycompany.sistemacontable.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -32,15 +37,22 @@ public class Balance implements Serializable {
     
     @Column(name="bal_total")
     private double total;
+    
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name="codigo_balance")
+    private List<Detalle> detalles;
 
     public Balance() {
     }
 
-    public Balance(int id, Date fecha, double total) {
+    public Balance(int id, Date fecha, double total, List<Detalle> detalles) {
         this.id = id;
         this.fecha = fecha;
         this.total = total;
+        this.detalles = detalles;
     }
+
+    
 
     public int getId() {
         return id;
@@ -64,6 +76,14 @@ public class Balance implements Serializable {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public void setDetalles(List<Detalle> detalles) {
+        this.detalles = detalles;
+    }
+
+    public List<Detalle> getDetalles() {
+        return detalles;
     }
     
     

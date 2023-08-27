@@ -5,6 +5,7 @@
     <class>com.mycompany.sistemacontable.modelo.Persona</class>
     <class>com.mycompany.sistemacontable.modelo.Balance</class>
     <class>com.mycompany.sistemacontable.modelo.Proveedor</class>
+    <class>com.mycompany.sistemacontable.modelo.Detalle</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/joyeriaJPA?serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="joyeria"/>
