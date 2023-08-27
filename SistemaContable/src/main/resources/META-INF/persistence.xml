@@ -3,6 +3,8 @@
   <persistence-unit name="joyeriaJPAPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.mycompany.sistemacontable.modelo.Persona</class>
+    <class>com.mycompany.sistemacontable.modelo.Balance</class>
+    <class>com.mycompany.sistemacontable.modelo.Proveedor</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/joyeriaJPA?serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="joyeria"/>

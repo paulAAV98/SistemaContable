@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemacontable.modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ import javax.persistence.TemporalType;
  * @author Usuario
  */
 @Entity
-public class Balance {
+public class Balance implements Serializable {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
