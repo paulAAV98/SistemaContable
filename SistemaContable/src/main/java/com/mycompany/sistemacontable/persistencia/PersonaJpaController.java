@@ -30,8 +30,8 @@ public class PersonaJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
-    public PersonaJpaController(){
+
+    public PersonaJpaController() {
         emf = Persistence.createEntityManagerFactory("joyeriaJPAPU");
     }
 
@@ -48,8 +48,6 @@ public class PersonaJpaController implements Serializable {
             }
         }
     }
-    
-   
 
     public void edit(Persona persona) throws NonexistentEntityException, Exception {
         EntityManager em = null;
@@ -127,8 +125,8 @@ public class PersonaJpaController implements Serializable {
             em.close();
         }
     }
-    
-       public Persona findPersonaCedula(String cedula) {
+
+    public Persona findPersonaCedula(String cedula) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Persona.class, cedula);
@@ -149,5 +147,5 @@ public class PersonaJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

@@ -31,8 +31,8 @@ public class ClienteJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
-    public ClienteJpaController(){
+
+    public ClienteJpaController() {
         emf = Persistence.createEntityManagerFactory("joyeriaJPAPU");
     }
 
@@ -55,7 +55,7 @@ public class ClienteJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            cliente= em.merge(cliente);
+            cliente = em.merge(cliente);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -80,7 +80,7 @@ public class ClienteJpaController implements Serializable {
             em.getTransaction().begin();
             Cliente cliente;
             try {
-                 cliente = em.getReference(Cliente .class, id);
+                cliente = em.getReference(Cliente.class, id);
                 cliente.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The persona with id " + id + " no longer exists.", enfe);
@@ -126,8 +126,8 @@ public class ClienteJpaController implements Serializable {
             em.close();
         }
     }
-    
-       public Cliente findClienteC(String cedula) {
+
+    public Cliente findClienteC(String cedula) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Cliente.class, cedula);
@@ -148,5 +148,5 @@ public class ClienteJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

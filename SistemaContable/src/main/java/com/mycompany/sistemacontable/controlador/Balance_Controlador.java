@@ -5,10 +5,9 @@
 package com.mycompany.sistemacontable.controlador;
 
 import com.mycompany.sistemacontable.modelo.Balance;
-import com.mycompany.sistemacontable.modelo.Persona;
+
 import com.mycompany.sistemacontable.persistencia.BalanceJpaController;
-import com.mycompany.sistemacontable.persistencia.ControladoraPersistencia;
-import com.mycompany.sistemacontable.persistencia.PersonaJpaController;
+
 import com.mycompany.sistemacontable.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
 
@@ -17,32 +16,31 @@ import java.util.List;
  * @author LegionXR
  */
 public class Balance_Controlador {
+
     BalanceJpaController balJpa = new BalanceJpaController();
-    
-    public void crear(Balance balance){
+
+    public void crear(Balance balance) {
         balJpa.create(balance);
     }
-    
-    public void eliminar(Balance balance) throws NonexistentEntityException{
+
+    public void eliminar(Balance balance) throws NonexistentEntityException {
         balJpa.destroy(balance.getId());
-        
-        
+
     }
-    
-    public void editar(Balance balance) throws Exception{
+
+    public void editar(Balance balance) throws Exception {
         balJpa.edit(balance);
-        
+
     }
-    
-    public List<Balance>listaBalance(){
-        
-        
+
+    public List<Balance> listaBalance() {
+
         return balJpa.findBalanceEntities();
-                
+
     }
-    
-    public Balance getBalance (Balance balance){
-        
+
+    public Balance getBalance(Balance balance) {
+
         return balJpa.findBalance(balance.getId());
     }
 }

@@ -30,8 +30,8 @@ public class BalanceJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
-    public BalanceJpaController(){
+
+    public BalanceJpaController() {
         emf = Persistence.createEntityManagerFactory("joyeriaJPAPU");
     }
 
@@ -138,5 +138,5 @@ public class BalanceJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

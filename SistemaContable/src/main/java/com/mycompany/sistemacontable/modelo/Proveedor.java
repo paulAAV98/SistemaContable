@@ -20,20 +20,20 @@ import javax.persistence.OneToOne;
 @Entity
 
 public class Proveedor implements Serializable {
-    
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="pro_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pro_id")
     private int id;
-    
-    @Column(name="pro_ruc")
+
+    @Column(name = "pro_ruc")
     private String ruc;
-    
-    @Column(name="pro_empresa")
+
+    @Column(name = "pro_empresa")
     private String empresa;
-    
-     @OneToOne
-    @JoinColumn(name="id_pro_per")
+
+    @OneToOne
+    @JoinColumn(name = "id_pro_per")
     private Persona persona;
 
     public Proveedor(int id, String ruc, String empresa, Persona persona) {
@@ -46,7 +46,6 @@ public class Proveedor implements Serializable {
     public Proveedor() {
     }
 
-   
     public int getId() {
         return id;
     }
@@ -78,9 +77,5 @@ public class Proveedor implements Serializable {
     public Persona getPersona() {
         return persona;
     }
-    
-    
-    
-    
-    
+
 }
