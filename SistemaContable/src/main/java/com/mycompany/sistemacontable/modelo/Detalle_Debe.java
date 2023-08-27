@@ -4,10 +4,25 @@
  */
 package com.mycompany.sistemacontable.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Usuario
  */
+@Entity
 public class Detalle_Debe {
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="deb_id")
+    private int id;
+    
+    @Column(name="deb_monto")
+    private double monto;
     
 }
