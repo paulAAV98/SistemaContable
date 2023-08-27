@@ -48,6 +48,8 @@ public class PersonaJpaController implements Serializable {
             }
         }
     }
+    
+   
 
     public void edit(Persona persona) throws NonexistentEntityException, Exception {
         EntityManager em = null;
