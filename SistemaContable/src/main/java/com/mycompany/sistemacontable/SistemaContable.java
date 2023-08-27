@@ -5,7 +5,11 @@
 
 package com.mycompany.sistemacontable;
 
+import com.mycompany.sistemacontable.controlador.Persona_Controlador;
+import com.mycompany.sistemacontable.modelo.Persona;
 import com.mycompany.sistemacontable.persistencia.ControladoraPersistencia;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -14,6 +18,15 @@ import com.mycompany.sistemacontable.persistencia.ControladoraPersistencia;
 public class SistemaContable {
 
     public static void main(String[] args) {
-        ControladoraPersistencia controlPersis = new ControladoraPersistencia();
+        //ControladoraPersistencia controlPersis = new ControladoraPersistencia();
+       //  --------------------------Pruebas----------------------------------------------- 
+        new Persona_Controlador().crear(new Persona(1,"Juan","Torres","Manuel Vega","0959147219"));
+        new Persona_Controlador().crear(new Persona(1,"Maria","Vega","Calle Larga","0985623038"));
+        Persona per=new Persona();
+        per.setId(2);
+        Persona per1 =new Persona_Controlador().getPersona(per);
+        
+        JOptionPane.showMessageDialog(null,per1.getNombre() );
+        
     }
 }

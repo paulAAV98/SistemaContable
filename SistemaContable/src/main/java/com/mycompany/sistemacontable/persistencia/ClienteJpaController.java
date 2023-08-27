@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemacontable.persistencia;
 
+import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.Persona;
 import com.mycompany.sistemacontable.persistencia.exceptions.NonexistentEntityException;
 import java.io.Serializable;
@@ -20,9 +21,9 @@ import javax.persistence.criteria.Root;
  *
  * @author Usuario
  */
-public class PersonaJpaController implements Serializable {
+public class ClienteJpaController implements Serializable {
 
-    public PersonaJpaController(EntityManagerFactory emf) {
+    public ClienteJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -31,16 +32,16 @@ public class PersonaJpaController implements Serializable {
         return emf.createEntityManager();
     }
     
-    public PersonaJpaController(){
+    public ClienteJpaController(){
         emf = Persistence.createEntityManagerFactory("joyeriaJPAPU");
     }
 
-    public void create(Persona persona) {
+    public void create(Cliente cliente) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(persona);
+            em.persist(cliente);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -49,18 +50,18 @@ public class PersonaJpaController implements Serializable {
         }
     }
 
-    public void edit(Persona persona) throws NonexistentEntityException, Exception {
+    public void edit(Cliente cliente) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            persona = em.merge(persona);
+            cliente= em.merge(cliente);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = persona.getId();
-                if (findPersona(id) == null) {
+                int id = cliente.getId();
+                if (findCliente(id) == null) {
                     throw new NonexistentEntityException("The persona with id " + id + " no longer exists.");
                 }
             }
@@ -77,14 +78,14 @@ public class PersonaJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Persona persona;
+            Cliente cliente;
             try {
-                persona = em.getReference(Persona.class, id);
-                persona.getId();
+                 cliente = em.getReference(Cliente .class, id);
+                cliente.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The persona with id " + id + " no longer exists.", enfe);
             }
-            em.remove(persona);
+            em.remove(cliente);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -93,15 +94,15 @@ public class PersonaJpaController implements Serializable {
         }
     }
 
-    public List<Persona> findPersonaEntities() {
+    public List<Cliente> findPersonaEntities() {
         return findPersonaEntities(true, -1, -1);
     }
 
-    public List<Persona> findPersonaEntities(int maxResults, int firstResult) {
+    public List<Cliente> findPersonaEntities(int maxResults, int firstResult) {
         return findPersonaEntities(false, maxResults, firstResult);
     }
 
-    private List<Persona> findPersonaEntities(boolean all, int maxResults, int firstResult) {
+    private List<Cliente> findPersonaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -117,25 +118,25 @@ public class PersonaJpaController implements Serializable {
         }
     }
 
-    public Persona findPersona(int id) {
+    public Cliente findCliente(int id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Persona.class, id);
+            return em.find(Cliente.class, id);
         } finally {
             em.close();
         }
     }
     
-       public Persona findPersonaCedula(String cedula) {
+       public Cliente findClienteC(String cedula) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Persona.class, cedula);
+            return em.find(Cliente.class, cedula);
         } finally {
             em.close();
         }
     }
 
-    public int getPersonaCount() {
+    public int getClienteCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();

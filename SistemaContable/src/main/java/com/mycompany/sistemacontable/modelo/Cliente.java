@@ -15,60 +15,62 @@ import javax.persistence.OneToOne;
 
 /**
  *
- * @author Bernardo
+ * @author LegionXR
  */
 @Entity
-
-public class Proveedor implements Serializable {
-    
-    @Id
+public class Cliente implements Serializable{
+     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="pro_id")
+    @Column(name="cli_id")
     private int id;
     
-    @Column(name="pro_ruc")
-    private String ruc;
+    @Column(name="cli_cedula")
+    private String cedula;
     
-    @Column(name="pro_empresa")
-    private String empresa;
+    @Column(name="cli_correo")
+    private String correo;
     
-     @OneToOne
-    @JoinColumn(name="id_pro_per")
+        
+    @OneToOne
+    @JoinColumn(name="id_cli_per")
     private Persona persona;
 
-    public Proveedor(int id, String ruc, String empresa, Persona persona) {
+    public Cliente(int id, String cedula, String correo, Persona persona) {
         this.id = id;
-        this.ruc = ruc;
-        this.empresa = empresa;
+        this.cedula = cedula;
+        this.correo = correo;
         this.persona = persona;
     }
 
-    public Proveedor() {
+  
+    
+
+    public Cliente() {
     }
 
-   
-    public int getId() {
-        return id;
+    
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getRuc() {
-        return ruc;
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setRuc(String ruc) {
-        this.ruc = ruc;
+    public String getCorreo() {
+        return correo;
     }
 
-    public String getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
+    public int getId() {
+        return id;
     }
 
     public void setPersona(Persona persona) {
@@ -78,8 +80,6 @@ public class Proveedor implements Serializable {
     public Persona getPersona() {
         return persona;
     }
-    
-    
     
     
     

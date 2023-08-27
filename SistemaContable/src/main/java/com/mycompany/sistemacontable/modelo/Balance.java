@@ -45,11 +45,11 @@ public class Balance implements Serializable {
     public Balance() {
     }
 
-    public Balance(int id, Date fecha, double total, List<Detalle> detalles) {
+    public Balance(int id, Date fecha, double total) {
         this.id = id;
         this.fecha = fecha;
         this.total = total;
-        this.detalles = detalles;
+        
     }
 
     
@@ -82,9 +82,7 @@ public class Balance implements Serializable {
         this.detalles = detalles;
     }
 
-    public List<Detalle> getDetalles() {
-        return detalles;
-    }
+   
     
     
     
