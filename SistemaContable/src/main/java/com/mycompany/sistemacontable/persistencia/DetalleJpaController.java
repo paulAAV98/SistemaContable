@@ -61,7 +61,7 @@ public class DetalleJpaController implements Serializable {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
                 int id = detalle.getId();
-                if (findBalance(id) == null) {
+                if (findDetalle(id) == null) {
                     throw new NonexistentEntityException("The balance with id " + id + " no longer exists.");
                 }
             }
@@ -94,15 +94,15 @@ public class DetalleJpaController implements Serializable {
         }
     }
 
-    public List<Detalle> findBalanceEntities() {
-        return findBalanceEntities(true, -1, -1);
+    public List<Detalle> findDetalleEntities() {
+        return findDetalleEntities(true, -1, -1);
     }
 
-    public List<Detalle> findBalanceEntities(int maxResults, int firstResult) {
-        return findBalanceEntities(false, maxResults, firstResult);
+    public List<Detalle> findDetalleEntities(int maxResults, int firstResult) {
+        return findDetalleEntities(false, maxResults, firstResult);
     }
 
-    private List<Detalle> findBalanceEntities(boolean all, int maxResults, int firstResult) {
+    private List<Detalle> findDetalleEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -118,7 +118,7 @@ public class DetalleJpaController implements Serializable {
         }
     }
 
-    public Detalle findBalance(int id) {
+    public Detalle findDetalle(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Detalle.class, id);
@@ -127,7 +127,7 @@ public class DetalleJpaController implements Serializable {
         }
     }
 
-    public int getBalanceCount() {
+    public int getDetalleCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
