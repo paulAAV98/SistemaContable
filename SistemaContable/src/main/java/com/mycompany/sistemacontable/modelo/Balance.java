@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -37,20 +38,12 @@ public class Balance implements Serializable {
 
     @Column(name = "bal_total")
     private double total;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "codigo_balance")
-    private List<Detalle> detalles;
-
-    public Balance() {
-    }
-
-    public Balance(int id, Date fecha, double total) {
-        this.id = id;
-        this.fecha = fecha;
-        this.total = total;
-
-    }
+    
+    @OneToOne
+    @JoinColumn(name="det_id")
+    private Detalle detalle;
+    
+    
 
     public int getId() {
         return id;
@@ -76,8 +69,13 @@ public class Balance implements Serializable {
         this.total = total;
     }
 
-    public void setDetalles(List<Detalle> detalles) {
-        this.detalles = detalles;
+    public Detalle getDetalle() {
+        return detalle;
     }
+
+    public void setDetalle(Detalle detalle) {
+        this.detalle = detalle;
+    }
+    
 
 }
