@@ -10,6 +10,8 @@ import com.mycompany.sistemacontable.controlador.Persona_Controlador;
 import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.Persona;
 import com.mycompany.sistemacontable.persistencia.ControladoraPersistencia;
+import com.mycompany.sistemacontable.vista.Ventt_Prueba;
+import com.mycompany.sistemacontable.vista.VtnCliente;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -20,9 +22,16 @@ import javax.swing.JPanel;
 public class SistemaContable {
 
     public static void main(String[] args) {
+        
+        //new VtnCliente().setVisible(true);
+        new Ventt_Prueba().setVisible(true);
+        
+        
+        
+        
         //ControladoraPersistencia controlPersis = new ControladoraPersistencia();
         //  --------------------------Pruebas----------------------------------------------- 
-       new Persona_Controlador().crear(new Persona(1,"Juan","Torres","Manuel Vega","0959147219"));
+      /* new Persona_Controlador().crear(new Persona(1,"Juan","Torres","Manuel Vega","0959147219"));
         new Persona_Controlador().crear(new Persona(1,"Maria","Vega","Calle Larga","0985623038"));
         Persona per=new Persona();
         per.setId(1);
@@ -46,6 +55,6 @@ public class SistemaContable {
                      }
         
          
-
+*/
     }
 }

@@ -72,6 +72,16 @@ public class ClienteJpaController implements Serializable {
             }
         }
     }
+    
+     public List<Cliente> getList(){
+        EntityManager em = null;
+        
+            em = getEntityManager();
+		String jsql = "SELECT c FROM Cliente c";
+		Query query = em.createQuery(jsql, Cliente.class);
+		List<Cliente> lista = query.getResultList();
+		return lista;
+	}
 
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;

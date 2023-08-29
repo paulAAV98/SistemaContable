@@ -96,6 +96,16 @@ public class PersonaJpaController implements Serializable {
     public List<Persona> findPersonaEntities() {
         return findPersonaEntities(true, -1, -1);
     }
+    
+    public List<Persona> getList(){
+        EntityManager em = null;
+        
+            em = getEntityManager();
+		String jsql = "SELECT p FROM Persona p";
+		Query query = em.createQuery(jsql, Persona.class);
+		List<Persona> lista = query.getResultList();
+		return lista;
+	}
 
     public List<Persona> findPersonaEntities(int maxResults, int firstResult) {
         return findPersonaEntities(false, maxResults, firstResult);

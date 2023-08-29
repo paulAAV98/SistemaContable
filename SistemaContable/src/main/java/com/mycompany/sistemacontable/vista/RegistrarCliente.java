@@ -4,6 +4,13 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import com.mycompany.sistemacontable.controlador.Cliente_Controlador;
+import com.mycompany.sistemacontable.controlador.Controlador_All;
+import com.mycompany.sistemacontable.controlador.Persona_Controlador;
+import com.mycompany.sistemacontable.modelo.Cliente;
+import com.mycompany.sistemacontable.modelo.Persona;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -15,6 +22,9 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
      */
     public RegistrarCliente() {
         initComponents();
+        setClosable(true);
+        setDefaultLocale(null);
+        id.setText(String.valueOf(new Controlador_All().valor_idc()+1));
     }
 
     /**
@@ -26,27 +36,26 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        id = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        ced = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        nom = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        ape = new javax.swing.JTextField();
+        tel = new javax.swing.JLabel();
+        dir = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        tell = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setTitle("REGISTRO CLIENTE");
 
-        jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("340");
+        id.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        id.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jLabel2.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -64,9 +73,9 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("APELLIDO");
 
-        jLabel6.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("TELEFONO");
+        tel.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        tel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tel.setText("TELEFONO");
 
         jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -74,6 +83,11 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton1.setText("GUARDAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,22 +95,22 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
+                            .addComponent(ced)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField2)
+                            .addComponent(nom)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5)
+                            .addComponent(ape, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tel, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                            .addComponent(dir)
+                            .addComponent(tell)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(82, 82, 82)
@@ -112,30 +126,30 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel1)
+                .addComponent(id)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addGap(10, 10, 10)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ced, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jLabel3)
                 .addGap(10, 10, 10)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jLabel5)
                 .addGap(10, 10, 10)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jLabel7)
                 .addGap(10, 10, 10)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
-                .addComponent(jLabel6)
+                .addComponent(tel)
                 .addGap(10, 10, 10)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jButton1)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -146,20 +160,59 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        //System.out.println(new Controlador_All().valor_id());
+        
+        Cliente cli=new Cliente ();
+        
+        cli.setCedula(ced.getText());
+        
+         if(new Controlador_All().Cedula(cli.getCedula()) && cli.getCedula().length()==10){
+             new Persona_Controlador().crear(new Persona(1,nom.getText(),ape.getText(),dir.getText(),tell.getText()));
+             cli.setCorreo("--------");
+             cli.setId(0);
+             
+                Persona per=new Persona();
+                per.setId(new Controlador_All().valor_id());
+                Persona per1 =new Persona_Controlador().getPersona(per);
+             cli.setPersona(per1);
+             
+             new Cliente_Controlador().crear(cli);
+             JOptionPane.showMessageDialog(null,"Cliente Creado");  
+             limpiar();
+         }else{
+             JOptionPane.showMessageDialog(null,"CEDULA INVALIDA");    
+                     }
+       
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ape;
+    private javax.swing.JTextField ced;
+    private javax.swing.JTextField dir;
+    private javax.swing.JLabel id;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField nom;
+    private javax.swing.JLabel tel;
+    private javax.swing.JTextField tell;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiar() {
+        nom.setText("");
+        ape.setText("");
+        ced.setText("");
+        dir.setText("");
+        tell.setText("");
+        id.setText(String.valueOf(new Controlador_All().valor_idc()+1));
+    }
 }

@@ -28,7 +28,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="48" max="-2" attributes="0"/>
+              <Component id="id" min="-2" pref="48" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -36,15 +36,15 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField1" max="32767" attributes="0"/>
+                          <Component id="ced" max="32767" attributes="0"/>
                           <Component id="jLabel3" max="32767" attributes="0"/>
                           <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="nom" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel5" alignment="0" pref="328" max="32767" attributes="0"/>
-                          <Component id="jTextField3" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jLabel6" alignment="0" pref="328" max="32767" attributes="0"/>
-                          <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
+                          <Component id="ape" alignment="1" max="32767" attributes="0"/>
+                          <Component id="tel" alignment="0" pref="328" max="32767" attributes="0"/>
+                          <Component id="dir" alignment="0" max="32767" attributes="0"/>
+                          <Component id="tell" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel7" alignment="1" pref="328" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -68,30 +68,30 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="id" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+              <Component id="ced" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+              <Component id="nom" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
+              <Component id="ape" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Component id="jTextField4" min="-2" max="-2" attributes="0"/>
+              <Component id="dir" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <Component id="tel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
+              <Component id="tell" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
@@ -104,13 +104,12 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="id">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Book Antiqua" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="340"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -131,7 +130,7 @@
         <Property name="text" type="java.lang.String" value="NOMBRE"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="ced">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -142,7 +141,7 @@
         <Property name="text" type="java.lang.String" value="CEDULA"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="nom">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -153,9 +152,9 @@
         <Property name="text" type="java.lang.String" value="APELLIDO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="ape">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="tel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Book Antiqua" size="18" style="1"/>
@@ -164,7 +163,7 @@
         <Property name="text" type="java.lang.String" value="TELEFONO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="dir">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -175,7 +174,7 @@
         <Property name="text" type="java.lang.String" value="DIRECCION"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="tell">
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
@@ -184,6 +183,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="GUARDAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
