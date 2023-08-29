@@ -152,7 +152,7 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
 
                 .addContainerGap(53, Short.MAX_VALUE))
 
-                .addContainerGap(36, Short.MAX_VALUE))
+                
 
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()

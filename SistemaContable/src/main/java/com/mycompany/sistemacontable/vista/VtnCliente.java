@@ -54,18 +54,7 @@ public class VtnCliente extends javax.swing.JFrame {
         });
 
 
-        jMenuItem1.setText("Registrar Cliente");
-        jMenuItem1.setActionCommand("Registro");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        RegistrarClienteItem.setText("Registrar Cliente");
-        RegistrarClienteItem.setActionCommand("Registro");
-        jMenu1.add(RegistrarClienteItem);
+        
 
 
         ActualizarClienteItem.setLabel("Actualizar Cliente");
