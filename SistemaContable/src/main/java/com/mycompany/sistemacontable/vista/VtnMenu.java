@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author Usuario
  */
-public class VtnCliente extends javax.swing.JFrame {
+public class VtnMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form VtnCliente
      */
-    public VtnCliente() {
+    public VtnMenu() {
         initComponents();
     }
 
@@ -53,9 +53,14 @@ public class VtnCliente extends javax.swing.JFrame {
             }
         });
 
-
-        
-
+        RegistrarClienteItem.setText("Registrar Cliente");
+        RegistrarClienteItem.setActionCommand("Registro");
+        RegistrarClienteItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(RegistrarClienteItem);
 
         ActualizarClienteItem.setLabel("Actualizar Cliente");
         ActualizarClienteItem.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +83,6 @@ public class VtnCliente extends javax.swing.JFrame {
         jMenu2.add(RegistrarProveedorItem);
 
         ActualizarProveedorItem.setText("Actualizar Proveedor");
-        ActualizarProveedorItem.setActionCommand("Actualizar Proveedor");
         ActualizarProveedorItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ActualizarProveedorItemActionPerformed(evt);

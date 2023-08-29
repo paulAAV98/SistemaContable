@@ -11,7 +11,6 @@ import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.Persona;
 import com.mycompany.sistemacontable.persistencia.ControladoraPersistencia;
 import com.mycompany.sistemacontable.vista.Ventt_Prueba;
-import com.mycompany.sistemacontable.vista.VtnCliente;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 

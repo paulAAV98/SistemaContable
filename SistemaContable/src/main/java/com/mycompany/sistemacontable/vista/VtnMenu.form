@@ -50,7 +50,6 @@
             <MenuItem class="javax.swing.JMenuItem" name="ActualizarProveedorItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar Proveedor"/>
-                <Property name="actionCommand" type="java.lang.String" value="Actualizar Proveedor"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ActualizarProveedorItemActionPerformed"/>
