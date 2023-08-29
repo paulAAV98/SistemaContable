@@ -15,6 +15,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
      */
     public ActualizarCliente() {
         initComponents();
+        setClosable(true);
     }
 
     /**
