@@ -4,18 +4,16 @@
  */
 package com.mycompany.sistemacontable.vista;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Usuario
  */
-public class VtnMenu extends javax.swing.JFrame {
+public class MenuVtn extends javax.swing.JFrame {
 
     /**
-     * Creates new form VtnCliente
+     * Creates new form MenuVtn
      */
-    public VtnMenu() {
+    public MenuVtn() {
         initComponents();
     }
 
@@ -33,15 +31,9 @@ public class VtnMenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        RegistrarProveedorItem = new javax.swing.JMenuItem();
-        ActualizarProveedorItem = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("BALANCE");
-        setEnabled(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/azul.jpg"))); // NOI18N
 
@@ -53,25 +45,17 @@ public class VtnMenu extends javax.swing.JFrame {
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1286, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 885, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel1)
         );
 
         jMenu1.setText("Cliente");
-        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.S_RESIZE_CURSOR));
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
-            }
-        });
 
-        jMenuItem1.setText("REGISTRAR");
+        jMenuItem1.setText("Registrar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -79,33 +63,10 @@ public class VtnMenu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("ACTUALIZAR");
-        jMenu1.add(jMenuItem2);
-
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Proveedor");
-
-        RegistrarProveedorItem.setText("Registrar Proveedor");
-        RegistrarProveedorItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistrarProveedorItemActionPerformed(evt);
-            }
-        });
-        jMenu2.add(RegistrarProveedorItem);
-
-        ActualizarProveedorItem.setText("Actualizar Proveedor");
-        ActualizarProveedorItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActualizarProveedorItemActionPerformed(evt);
-            }
-        });
-        jMenu2.add(ActualizarProveedorItem);
-
         jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Balance");
-        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -125,38 +86,24 @@ public class VtnMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ActualizarProveedorItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarProveedorItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ActualizarProveedorItemActionPerformed
-
-    private void RegistrarProveedorItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarProveedorItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegistrarProveedorItemActionPerformed
-
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        // TODO add your handling code here:
-        
-        JOptionPane.showMessageDialog(null, "Hola Cliente");
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         RegistrarCliente reg=new RegistrarCliente();
         escritorio.add(reg);
-        reg.setVisible(true); 
+        reg.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-   
+    /**
+     * @param args the command line arguments
+     */
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ActualizarProveedorItem;
-    private javax.swing.JMenuItem RegistrarProveedorItem;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }
