@@ -43,3 +43,4 @@ public class Proveedor_Controlador {
         return proJpa.findProveedor(proveedor.getId());
     }
 }
+
