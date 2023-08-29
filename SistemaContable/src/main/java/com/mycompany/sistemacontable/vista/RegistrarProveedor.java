@@ -43,6 +43,7 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         id = new javax.swing.JLabel();
 
+        setTitle("REGISTRAR PROVEEDOR");
         setPreferredSize(new java.awt.Dimension(395, 640));
 
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
