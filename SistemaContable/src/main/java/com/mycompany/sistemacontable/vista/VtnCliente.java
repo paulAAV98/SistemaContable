@@ -31,11 +31,11 @@ public class VtnCliente extends javax.swing.JFrame {
         jLabelFondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        RegistrarClienteItem = new javax.swing.JMenuItem();
+        ActualizarClienteItem = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        RegistrarProveedorItem = new javax.swing.JMenuItem();
+        ActualizarProveedorItem = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,6 +53,7 @@ public class VtnCliente extends javax.swing.JFrame {
             }
         });
 
+
         jMenuItem1.setText("Registrar Cliente");
         jMenuItem1.setActionCommand("Registro");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -62,23 +63,39 @@ public class VtnCliente extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Eliminar Cliente");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        RegistrarClienteItem.setText("Registrar Cliente");
+        RegistrarClienteItem.setActionCommand("Registro");
+        jMenu1.add(RegistrarClienteItem);
+
+
+        ActualizarClienteItem.setLabel("Actualizar Cliente");
+        ActualizarClienteItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                ActualizarClienteItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(ActualizarClienteItem);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Proveedor");
 
-        jMenuItem3.setText("Registrar Proveedor");
-        jMenu2.add(jMenuItem3);
+        RegistrarProveedorItem.setText("Registrar Proveedor");
+        RegistrarProveedorItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarProveedorItemActionPerformed(evt);
+            }
+        });
+        jMenu2.add(RegistrarProveedorItem);
 
-        jMenuItem4.setText("Eliminar Proveedor");
-        jMenu2.add(jMenuItem4);
+        ActualizarProveedorItem.setText("Actualizar Proveedor");
+        ActualizarProveedorItem.setActionCommand("Actualizar Proveedor");
+        ActualizarProveedorItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarProveedorItemActionPerformed(evt);
+            }
+        });
+        jMenu2.add(ActualizarProveedorItem);
 
         jMenuBar1.add(jMenu2);
 
@@ -107,9 +124,17 @@ public class VtnCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void ActualizarClienteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarClienteItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_ActualizarClienteItemActionPerformed
+
+    private void ActualizarProveedorItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarProveedorItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ActualizarProveedorItemActionPerformed
+
+    private void RegistrarProveedorItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarProveedorItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistrarProveedorItemActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
@@ -125,14 +150,14 @@ public class VtnCliente extends javax.swing.JFrame {
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ActualizarClienteItem;
+    private javax.swing.JMenuItem ActualizarProveedorItem;
+    private javax.swing.JMenuItem RegistrarClienteItem;
+    private javax.swing.JMenuItem RegistrarProveedorItem;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }
