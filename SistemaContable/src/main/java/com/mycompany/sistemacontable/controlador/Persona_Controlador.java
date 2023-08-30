@@ -38,8 +38,8 @@ public class Persona_Controlador {
 
     }
 
-    public Persona getPersona(Persona persona) {
+    public Persona getPersona(int id) {
 
-        return perJpa.findPersona(persona.getId());
+        return perJpa.findPersona(id);
     }
 }

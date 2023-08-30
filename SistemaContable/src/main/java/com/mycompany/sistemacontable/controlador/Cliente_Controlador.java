@@ -24,8 +24,8 @@ public class Cliente_Controlador {
         cliJpa.create(cliente);
     }
 
-    public void eliminar(Balance balance) throws NonexistentEntityException {
-        cliJpa.destroy(balance.getId());
+    public void eliminar(Cliente cliente) throws NonexistentEntityException {
+        cliJpa.destroy(cliente.getId());
 
     }
 
@@ -40,8 +40,10 @@ public class Cliente_Controlador {
 
     }
 
-    public Cliente getBalance(Cliente cliente) {
+    public Cliente getCliente(int id) {
 
-        return cliJpa.findClienteC(cliente.getCedula());
+        return cliJpa.findClienteC(id);
     }
+    
+    
 }

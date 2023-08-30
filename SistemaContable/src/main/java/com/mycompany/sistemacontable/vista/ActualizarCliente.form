@@ -30,7 +30,7 @@
                           <Component id="jLabel1" max="32767" attributes="0"/>
                           <Component id="jLabel3" alignment="1" max="32767" attributes="0"/>
                           <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextField4" alignment="1" pref="308" max="32767" attributes="0"/>
+                          <Component id="dir" alignment="1" pref="308" max="32767" attributes="0"/>
                           <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="btnActualizar" min="-2" max="-2" attributes="0"/>
@@ -40,7 +40,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jLabel2" pref="154" max="32767" attributes="0"/>
-                                  <Component id="jTextField1" max="32767" attributes="0"/>
+                                  <Component id="ced" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Component id="btnBuscar" min="-2" pref="127" max="-2" attributes="0"/>
@@ -49,7 +49,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                      <Component id="jTextField2" min="-2" pref="182" max="-2" attributes="0"/>
+                      <Component id="nom" min="-2" pref="182" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="35" max="32767" attributes="0"/>
@@ -57,8 +57,8 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField3" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
-                  <Component id="jTextField5" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
+                  <Component id="ape" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                  <Component id="tell" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="95" pref="95" max="-2" attributes="0"/>
           </Group>
@@ -71,25 +71,25 @@
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ced" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+              <Component id="nom" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
+              <Component id="ape" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Component id="jTextField4" min="-2" max="-2" attributes="0"/>
+              <Component id="dir" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
+              <Component id="tell" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="33" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -110,7 +110,7 @@
         <Property name="text" type="java.lang.String" value="NOMBRE"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="ced">
     </Component>
     <Component class="javax.swing.JButton" name="btnBuscar">
       <Properties>
@@ -119,6 +119,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="BUSCAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -129,7 +132,7 @@
         <Property name="text" type="java.lang.String" value="CEDULA"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="nom">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -140,7 +143,7 @@
         <Property name="text" type="java.lang.String" value="APELLIDO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="ape">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -151,7 +154,7 @@
         <Property name="text" type="java.lang.String" value="DIRECCION"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="dir">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -162,7 +165,7 @@
         <Property name="text" type="java.lang.String" value="TELEFONO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="tell">
     </Component>
     <Component class="javax.swing.JButton" name="btnActualizar">
       <Properties>
@@ -171,6 +174,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnEliminar">
       <Properties>
@@ -179,6 +185,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="ELIMINAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

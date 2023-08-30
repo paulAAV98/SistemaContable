@@ -188,7 +188,7 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
              
                 Persona per=new Persona();
                 per.setId(new Controlador_All().valor_id());
-                Persona per1 =new Persona_Controlador().getPersona(per);
+                Persona per1 =new Persona_Controlador().getPersona(per.getId());
              cli.setPersona(per1);
              
              new Cliente_Controlador().crear(cli);

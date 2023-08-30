@@ -6,8 +6,10 @@ package com.mycompany.sistemacontable.controlador;
 
 import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.Persona;
+import com.mycompany.sistemacontable.modelo.Proveedor;
 import com.mycompany.sistemacontable.persistencia.ClienteJpaController;
 import com.mycompany.sistemacontable.persistencia.PersonaJpaController;
+import com.mycompany.sistemacontable.persistencia.ProveedorJpaController;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,6 +135,20 @@ public class Controlador_All {
         return lisp_c;
     }
     
+    public List<Integer>listaProveedores(){
+        
+        List<Proveedor>lisp=new ProveedorJpaController().getList();
+        
+        List<Integer>lisp_c=new ArrayList<>();
+        
+        for (int i = 0; i < lisp.size(); i++) {
+            lisp_c.add(lisp.get(i).getId());
+            
+        }
+        
+        return lisp_c;
+    }
+    
     public int valor_idc(){
         List<Integer>lis_id=listaclientes();
         int id=0;
@@ -146,4 +162,40 @@ public class Controlador_All {
         
         return id;
     }
+    
+     public int valor_idp(){
+        List<Integer>lis_id=listaProveedores();
+        int id=0;
+        System.out.println("dimension "+lis_id.size());
+        for (int i = 0; i < lis_id.size(); i++) {
+            if (lis_id.get(i)>id) {
+                id=lis_id.get(i);
+            
+                }
+        }
+        
+        return id;
+    }
+    
+     public int id_per(String cedula){
+        
+         int id=0;
+        List<Cliente>lisp=new ClienteJpaController().getList();
+        
+        List<Integer>lisp_c=new ArrayList<>();
+        
+        for (int i = 0; i < lisp.size(); i++) {
+            if (lisp.get(i).getCedula().equals(cedula)) {
+                id=lisp.get(i).getId();
+                break;
+                
+            }
+            
+        }
+        
+        return id;
+    }
+    
+    
+    
 }

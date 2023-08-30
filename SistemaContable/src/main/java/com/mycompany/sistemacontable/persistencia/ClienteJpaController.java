@@ -137,14 +137,20 @@ public class ClienteJpaController implements Serializable {
         }
     }
 
-    public Cliente findClienteC(String cedula) {
+    public Cliente findClienteC(int id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Cliente.class, cedula);
+            return em.find(Cliente.class,id);
         } finally {
             em.close();
         }
     }
+    
+    public Cliente buscar(String cedula) {
+         EntityManager em = getEntityManager();
+		Cliente c = em.find(Cliente.class, 1);
+		return c;
+	}
 
     public int getClienteCount() {
         EntityManager em = getEntityManager();
@@ -157,6 +163,11 @@ public class ClienteJpaController implements Serializable {
         } finally {
             em.close();
         }
+        
+        
+        
     }
+    
+    
 
 }

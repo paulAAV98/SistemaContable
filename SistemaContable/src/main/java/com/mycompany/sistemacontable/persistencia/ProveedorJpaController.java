@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemacontable.persistencia;
 
+import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.Proveedor;
 import com.mycompany.sistemacontable.persistencia.exceptions.NonexistentEntityException;
 import java.io.Serializable;
@@ -72,6 +73,8 @@ public class ProveedorJpaController implements Serializable {
         }
     }
 
+    
+    
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -138,5 +141,18 @@ public class ProveedorJpaController implements Serializable {
             em.close();
         }
     }
+    
+    
+    public List<Proveedor> getList(){
+        EntityManager em = null;
+        
+            em = getEntityManager();
+		String jsql = "SELECT p FROM Proveedor p";
+		Query query = em.createQuery(jsql, Proveedor.class);
+		List<Proveedor> lista = query.getResultList();
+		return lista;
+	}
+
 
 }
+
