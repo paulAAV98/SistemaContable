@@ -5,6 +5,7 @@
 package com.mycompany.sistemacontable.controlador;
 
 import com.mycompany.sistemacontable.modelo.Cliente;
+import com.mycompany.sistemacontable.modelo.ClienteT;
 import com.mycompany.sistemacontable.modelo.Persona;
 import com.mycompany.sistemacontable.modelo.Proveedor;
 import com.mycompany.sistemacontable.persistencia.ClienteJpaController;
@@ -128,7 +129,7 @@ public class Controlador_All {
         List<Integer>lisp_c=new ArrayList<>();
         
         for (int i = 0; i < lisp.size(); i++) {
-            lisp_c.add(lisp.get(i).getId());
+            lisp_c.add(lisp.get(i).getPersona().getId());
             
         }
         
@@ -162,6 +163,19 @@ public class Controlador_All {
         
         return id;
     }
+     public String valor_cedula(int id){
+       List<Cliente>lisp=new ClienteJpaController().getList();
+        String cedula="";
+        //System.out.println("dimension "+lis_id.size());
+        for (int i = 0; i < lisp.size(); i++) {
+            if (lisp.get(i).getPersona().getId()==id) {
+                cedula=lisp.get(i).getCedula();
+                }
+        }
+        
+        return cedula;
+    }
+    
     
      public int valor_idp(){
         List<Integer>lis_id=listaProveedores();
@@ -196,6 +210,48 @@ public class Controlador_All {
         return id;
     }
     
+     
+     public ArrayList<ClienteT> generar(String nombre) {
+        List<Persona> listax = new PersonaJpaController().getList();
+        System.out.println(listax.size()+"sadsadassssssssssssss");
+        nombre=nombre.trim();
+        int num=0;
+
+        ArrayList<ClienteT> lx = new ArrayList<>();
+
+        for (int i = 0; i < listax.size(); i++) {
+            String no=listax.get(i).getNombre();
+             String n = "";
+             int dim=0;
+             if(no.length()<= nombre.length()){
+                 dim=no.length();
+             }else{
+                 dim=nombre.length();
+             }
+            for (int f = 0; f < dim; f++) {
+                if (!(nombre.substring(f,f+1).toUpperCase().equals(no.substring(f,f+1).toUpperCase()))) {
+                   
+                    break;
+
+                }else{
+                    if(f==nombre.length()-1){
+                        ClienteT cl=new ClienteT();
+                        cl.setCedula(valor_cedula(listax.get(i).getId()));
+                        cl.setNombre(listax.get(i).getNombre());
+                        cl.setApellido(listax.get(i).getApellido());
+                        cl.setDireccion(listax.get(i).getDireccion());
+                        cl.setTelefono(listax.get(i).getTelefono());
+                        lx.add(cl);
+                    }
+                }
+                
+            }
+        }
+        return lx;
+
+    }
+     
+     
     
     
 }

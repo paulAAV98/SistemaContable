@@ -4,6 +4,14 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import com.mycompany.sistemacontable.controlador.Controlador_All;
+import com.mycompany.sistemacontable.controlador.Persona_Controlador;
+import com.mycompany.sistemacontable.modelo.ClienteT;
+import com.mycompany.sistemacontable.modelo.Persona;
+import com.mycompany.sistemacontable.persistencia.PersonaJpaController;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,10 +23,11 @@ public class Ventt_Prueba extends javax.swing.JFrame {
     /**
      * Creates new form Prueba
      */
-    
-    
     public Ventt_Prueba() {
         initComponents();
+
+        crear_lista();
+
     }
 
     /**
@@ -30,7 +39,11 @@ public class Ventt_Prueba extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        escritorio = new javax.swing.JDesktopPane();
+        xx = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tx = new javax.swing.JTable();
+        yy = new javax.swing.JLabel();
+        bt = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -39,16 +52,26 @@ public class Ventt_Prueba extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
-        escritorio.setLayout(escritorioLayout);
-        escritorioLayout.setHorizontalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 763, Short.MAX_VALUE)
-        );
-        escritorioLayout.setVerticalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 551, Short.MAX_VALUE)
-        );
+        xx.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                xxKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                xxKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                xxKeyTyped(evt);
+            }
+        });
+
+        tx.setModel(new Tabla_Clientes());
+        jScrollPane1.setViewportView(tx);
+
+        bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("CLIENTE");
 
@@ -74,13 +97,35 @@ public class Ventt_Prueba extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(xx, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                            .addComponent(yy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(bt)))
+                .addGap(68, 68, 68)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(escritorio)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(xx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(yy, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bt)))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,21 +133,157 @@ public class Ventt_Prueba extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        RegistrarCliente reg=new RegistrarCliente();
-        escritorio.add(reg);
-        reg.setVisible(true);
-        
-        
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-   
+
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    int cont = 0;
+
+    private void xxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xxKeyPressed
+        // TODO add your handling code here:
+       /* System.out.println("###############################################");
+        if (!xx.getText().equals("")) {
+            metodo();
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
+        }
+*/
+
+    }//GEN-LAST:event_xxKeyPressed
+
+    private void xxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xxKeyTyped
+        // TODO add your handling code here:
+        //metodo();
+        
+       /* char precionar=evt.getKeyChar();
+        
+        if(precionar==KeyEvent.VK_ENTER){
+        
+           
+            
+            
+            
+             
+        }*/
+     
+
+    }//GEN-LAST:event_xxKeyTyped
+
+    private void btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActionPerformed
+        // TODO add your handling code here:
+       // metodo();
+    }//GEN-LAST:event_btActionPerformed
+
+    private void xxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xxKeyReleased
+        // TODO add your handling code here:
+        metodo();
+    }//GEN-LAST:event_xxKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JButton bt;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tx;
+    private javax.swing.JTextField xx;
+    private javax.swing.JLabel yy;
     // End of variables declaration//GEN-END:variables
+
+    
+
+    public void crear_lista() {
+
+      /*  listax.add("Juana");
+        listax.add("Judas");
+        listax.add("Juan");
+        listax.add("Jose");
+        listax.add("Manuel");
+        listax.add("Marco");
+        listax.add("Maria");
+        listax.add("Flor");
+        listax.add("Fernanda");
+        listax.add("Fernando");
+        listax.add("Andres");
+        listax.add("Miguel");
+        listax.add("Alvaro");
+        listax.add("Luis");*/
+
+    }
+
+    private void metodo() {
+        /*yy.setText("");
+        //System.out.println(xx.getText());
+        yy.setText(xx.getText());
+
+        int dim = yy.getText().length();
+
+        System.out.println(dim);*/
+        //xx.doLayout();
+        
+        imprimir(xx.getText());
+        
+        tx.setModel(new Tabla_Clientes(generar(xx.getText())));
+        
+        //System.out.println("holaaa");
+        
+        
+
+        /* 
+            
+        }*/
+    }
+
+    private ArrayList<ClienteT> generar(String nombre) {
+        List<Persona> listax = new PersonaJpaController().getList();
+        System.out.println(listax.size()+"sadsadassssssssssssss");
+        nombre=nombre.trim();
+        int num=0;
+
+        ArrayList<ClienteT> lx = new ArrayList<>();
+
+        for (int i = 0; i < listax.size(); i++) {
+            String no=listax.get(i).getNombre();
+             String n = "";
+             int dim=0;
+             if(no.length()<= nombre.length()){
+                 dim=no.length();
+             }else{
+                 dim=nombre.length();
+             }
+            for (int f = 0; f < dim; f++) {
+                if (!(nombre.substring(f,f+1).equals(no.substring(f,f+1)))) {
+                   
+                    break;
+
+                }else{
+                    if(f==nombre.length()-1){
+                        ClienteT cl=new ClienteT();
+                        cl.setCedula("0000");
+                        cl.setNombre(listax.get(i).getNombre());
+                        cl.setApellido(listax.get(i).getApellido());
+                        cl.setDireccion(listax.get(i).getDireccion());
+                        cl.setTelefono(listax.get(i).getTelefono());
+                        lx.add(cl);
+                    }
+                }
+                
+            }
+        }
+        return lx;
+
+    }
+    
+    
+    void imprimir(String nombre){
+        
+        for (int i = 0; i < generar(nombre).size(); i++) {
+            System.out.println(generar(nombre).get(i));
+            System.out.println("--------------------------------------");
+            
+        }
+        
+    }
+
 }
