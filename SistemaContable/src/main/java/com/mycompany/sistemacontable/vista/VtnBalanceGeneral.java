@@ -256,4 +256,9 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel nombre;
     // End of variables declaration//GEN-END:variables
+
+public void hola(){
+    
+}
+
 }
