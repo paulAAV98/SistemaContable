@@ -232,6 +232,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
             new Persona_Controlador().editar(per);
 
             JOptionPane.showMessageDialog(null, "Cliente Actualizado");
+            limpiar();
 
         } catch (Exception ex) {
             Logger.getLogger(ActualizarCliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -246,6 +247,8 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
             new  Cliente_Controlador().eliminar(cli);
             new Persona_Controlador().eliminar(per);
              JOptionPane.showMessageDialog(null, "Cliente Eliminado");
+             limpiar();
+             
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(ActualizarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -302,7 +305,15 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
    
     
-    
+    private void limpiar() {
+        nom.setText("");
+        ape.setText("");
+        ced.setText("");
+        dir.setText("");
+        tell.setText("");
+        
+        
+    }
         
 
 

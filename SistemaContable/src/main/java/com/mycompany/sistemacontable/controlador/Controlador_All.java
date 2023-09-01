@@ -8,6 +8,7 @@ import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.ClienteT;
 import com.mycompany.sistemacontable.modelo.Persona;
 import com.mycompany.sistemacontable.modelo.Proveedor;
+import com.mycompany.sistemacontable.modelo.ProveedorT;
 import com.mycompany.sistemacontable.persistencia.ClienteJpaController;
 import com.mycompany.sistemacontable.persistencia.PersonaJpaController;
 import com.mycompany.sistemacontable.persistencia.ProveedorJpaController;
@@ -174,7 +175,35 @@ public class Controlador_All {
         }
         
         return cedula;
+        
     }
+     public Persona personas(int id){
+       List<Persona>lisp=new PersonaJpaController().getList();
+        Persona per=new Persona();
+        //System.out.println("dimension "+lis_id.size());
+        for (int i = 0; i < lisp.size(); i++) {
+            if (lisp.get(i).getId()==id) {
+                per=lisp.get(i);
+                }
+        }
+        
+        return per;
+    }
+     
+     public String valor_empresa(int id){
+       List<Proveedor>lisp=new ProveedorJpaController().getList();
+        String empresa="";
+        //System.out.println("dimension "+lis_id.size());
+        for (int i = 0; i < lisp.size(); i++) {
+            if (lisp.get(i).getPersona().getId()==id) {
+                empresa=lisp.get(i).getEmpresa();
+                }
+        }
+        
+        return empresa;
+    }
+     
+     
     
     
      public int valor_idp(){
@@ -209,11 +238,30 @@ public class Controlador_All {
         
         return id;
     }
+     
+      public int id_perP(String cedula){
+        
+         int id=0;
+        List<Proveedor>lisp=new ProveedorJpaController().getList();
+        
+        List<Integer>lisp_c=new ArrayList<>();
+        
+        for (int i = 0; i < lisp.size(); i++) {
+            if (lisp.get(i).getRuc().equals(cedula)) {
+                id=lisp.get(i).getId();
+                break;
+                
+            }
+            
+        }
+        
+        return id;
+    }
     
      
      public ArrayList<ClienteT> generar(String nombre) {
         List<Persona> listax = new PersonaJpaController().getList();
-        System.out.println(listax.size()+"sadsadassssssssssssss");
+       // System.out.println(listax.size()+"sadsadassssssssssssss");
         nombre=nombre.trim();
         int num=0;
 
@@ -235,6 +283,8 @@ public class Controlador_All {
 
                 }else{
                     if(f==nombre.length()-1){
+                         if (!valor_cedula(listax.get(i).getId()).equals("")) {
+                        
                         ClienteT cl=new ClienteT();
                         cl.setCedula(valor_cedula(listax.get(i).getId()));
                         cl.setNombre(listax.get(i).getNombre());
@@ -246,12 +296,57 @@ public class Controlador_All {
                 }
                 
             }
+                }
         }
         return lx;
 
     }
      
-     
+     public ArrayList<ProveedorT> generar1(String empresa) {
+        List<Proveedor> listax = new ProveedorJpaController().getList();
+        
+        empresa=empresa.trim();
+        int num=0;
+
+        ArrayList<ProveedorT> lx = new ArrayList<>();
+
+        for (int i = 0; i < listax.size(); i++) {
+            String no=listax.get(i).getEmpresa();
+             String n = "";
+             int dim=0;
+             if(no.length()<= empresa.length()){
+                 dim=no.length();
+             }else{
+                 dim=empresa.length();
+             }
+            for (int f = 0; f < dim; f++) {
+                if (!(empresa.substring(f,f+1).toUpperCase().equals(no.substring(f,f+1).toUpperCase()))) {
+                   
+                    break;
+
+                }else{
+                    if(f==empresa.length()-1){
+                        
+                       
+                        ProveedorT cl=new ProveedorT();
+                        cl.setRuc(listax.get(i).getRuc());
+                        cl.setNombre(personas(listax.get(i).getPersona().getId()).getNombre());
+                        cl.setApellido(personas(listax.get(i).getPersona().getId()).getApellido());
+                        cl.setDireccion(personas(listax.get(i).getPersona().getId()).getDireccion());
+                        cl.setTelefono(  personas(listax.get(i).getPersona().getId()).getTelefono());
+                        cl.setEmpresa(listax.get(i).getEmpresa());
+                        lx.add(cl);
+                       
+                       
+                    }
+                }
+                
+            }
+        }
+         
+        return lx;
+
+    } 
     
     
 }
