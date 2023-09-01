@@ -8,14 +8,14 @@ package com.mycompany.sistemacontable.vista;
  *
  * @author Usuario
  */
-public class VtnBalanceGeneral extends javax.swing.JInternalFrame {
+public class VtnBalanceGeneral extends javax.swing.JFrame {
 
     /**
      * Creates new form VtnBalanceGeneral
      */
     public VtnBalanceGeneral() {
         initComponents();
-        setClosable(true);
+        
     }
 
     /**
