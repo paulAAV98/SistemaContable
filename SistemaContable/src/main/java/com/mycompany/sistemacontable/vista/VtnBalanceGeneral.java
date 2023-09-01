@@ -74,10 +74,20 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
         total = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
 
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("BALANCE");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DETALLE", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DETALLE", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "DETALLE", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+
+
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "DEBE"));
 
@@ -540,4 +550,7 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
     private javax.swing.JLabel nombrepr2;
     private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
+
+
+
 }
