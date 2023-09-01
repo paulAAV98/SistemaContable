@@ -258,7 +258,7 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 public void hola(){
-    System.out.println("");
+    System.out.println("Hola");
     
 }
 
