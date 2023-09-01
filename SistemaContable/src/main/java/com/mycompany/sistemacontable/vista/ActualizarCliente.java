@@ -62,6 +62,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("NOMBRE");
 
+        ced.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ced.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cedKeyReleased(evt);
@@ -80,6 +81,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("CEDULA");
 
+        nom.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 nomKeyReleased(evt);
@@ -90,13 +92,19 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("APELLIDO");
 
+        ape.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         jLabel4.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("DIRECCION");
 
+        dir.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         jLabel5.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("TELEFONO");
+
+        tell.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btnActualizar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnActualizar.setText("ACTUALIZAR");
@@ -147,14 +155,14 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                                 .addGap(27, 27, 27)
                                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(ape, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(106, 106, 106)
+                        .addComponent(tell, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(106, 106, 106)
-                        .addComponent(tell, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(ape, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())

@@ -48,16 +48,16 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                      <Component id="nom" min="-2" pref="182" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                      <Component id="ape" min="-2" pref="182" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                      <Component id="tell" min="-2" pref="180" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                      <Component id="tell" min="-2" pref="180" max="-2" attributes="0"/>
+                      <Component id="nom" min="-2" pref="182" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                      <Component id="ape" min="-2" pref="182" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="58" max="32767" attributes="0"/>
@@ -121,6 +121,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="ced">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cedKeyReleased"/>
       </Events>
@@ -146,6 +149,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nom">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nomKeyReleased"/>
       </Events>
@@ -160,6 +166,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="ape">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -171,6 +180,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="dir">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -182,6 +194,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tell">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnActualizar">
       <Properties>
