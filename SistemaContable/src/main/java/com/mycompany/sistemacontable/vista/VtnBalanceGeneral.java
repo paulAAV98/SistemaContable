@@ -45,6 +45,8 @@ public class VtnBalanceGeneral extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DETALLE", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "DEBE"));
