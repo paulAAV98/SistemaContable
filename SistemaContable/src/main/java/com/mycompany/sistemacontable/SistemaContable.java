@@ -25,8 +25,8 @@ public class SistemaContable {
         
         //new VtnCliente().setVisible(true);
         //new VtnMenu().setVisible(true);
-        //new Ventt_Prueba().setVisible(true);
-        new MenuVtn().setVisible(true);
+        new Ventt_Prueba().setVisible(true);
+        //new MenuVtn().setVisible(true);
         
         
         

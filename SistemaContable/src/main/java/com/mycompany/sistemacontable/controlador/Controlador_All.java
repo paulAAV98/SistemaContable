@@ -12,6 +12,7 @@ import com.mycompany.sistemacontable.modelo.ProveedorT;
 import com.mycompany.sistemacontable.persistencia.ClienteJpaController;
 import com.mycompany.sistemacontable.persistencia.PersonaJpaController;
 import com.mycompany.sistemacontable.persistencia.ProveedorJpaController;
+
 import java.util.ArrayList;
 import java.util.List;
 
