@@ -153,7 +153,7 @@ public class Ventt_Prueba extends javax.swing.JFrame {
         // TODO add your handling code here:
         //metodo();
         
-       /* char precionar=evt.getKeyChar();
+       /*char precionar=evt.getKeyChar();
         
         if(precionar==KeyEvent.VK_ENTER){
         
