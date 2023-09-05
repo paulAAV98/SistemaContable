@@ -46,8 +46,6 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jToggleButton3 = new javax.swing.JToggleButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel1.setText("PROVEEDOR:");
 
@@ -62,6 +60,11 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
 
         jToggleButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jToggleButton1.setText("BUSCAR");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         nombremp.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         nombremp.setText(" ");
@@ -70,6 +73,11 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
 
         jToggleButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jToggleButton2.setText("BUSCAR");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel3.setText("TIPO DE PAGO: ");
@@ -208,6 +216,18 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        BuscarProveedor busPro=new BuscarProveedor();
+        busPro.setVisible(true);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        // TODO add your handling code here:
+        BuscarEmpleado busEm=new BuscarEmpleado();
+        busEm.setVisible(true);
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**
      * @param args the command line arguments
