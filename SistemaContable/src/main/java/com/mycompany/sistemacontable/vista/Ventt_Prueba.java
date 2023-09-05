@@ -253,7 +253,7 @@ public class Ventt_Prueba extends javax.swing.JFrame {
                  dim=nombre.length();
              }
             for (int f = 0; f < dim; f++) {
-                if (!(nombre.substring(f,f+1).equals(no.substring(f,f+1)))) {
+                if (!(nombre.substring(f,f+1).toUpperCase().equals(no.substring(f,f+1).toUpperCase()))) {
                    
                     break;
 
