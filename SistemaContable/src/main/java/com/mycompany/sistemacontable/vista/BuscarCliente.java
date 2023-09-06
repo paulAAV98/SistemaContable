@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import com.mycompany.sistemacontable.controlador.Controlador_All;
 import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.ClienteT;
 import com.mycompany.sistemacontable.modelo.Persona;
@@ -203,7 +204,7 @@ public class BuscarCliente extends javax.swing.JFrame {
         
         imprimir(xx.getText());
         
-        txCliente.setModel(new Tabla_Clientes(generar(xx.getText())));
+        txCliente.setModel(new Tabla_Clientes(new Controlador_All().generar(xx.getText())));
         
         //System.out.println("holaaa");
         
@@ -213,10 +214,10 @@ public class BuscarCliente extends javax.swing.JFrame {
             
         }*/
     }
-     private ArrayList<ClienteT> generar(String nombre) {
+     /*private ArrayList<ClienteT> generar(String nombre) {
         List<Cliente> listaxc = new ClienteJpaController().getList();
         List<Persona> listax = new PersonaJpaController().getList();
-        System.out.println(listax.size()+"sadsadassssssssssssss");
+       // System.out.println(listax.size()+"sadsadassssssssssssss");
         nombre=nombre.trim();
         int num=0;
 
@@ -252,14 +253,14 @@ public class BuscarCliente extends javax.swing.JFrame {
         }
         return lx;
      }
-
+*/
 
     
     
     void imprimir(String nombre){
         
-        for (int i = 0; i < generar(nombre).size(); i++) {
-            System.out.println(generar(nombre).get(i));
+        for (int i = 0; i < new Controlador_All().generar(nombre).size(); i++) {
+            System.out.println(new Controlador_All().generar(nombre).get(i));
             System.out.println("--------------------------------------");
             
         }
