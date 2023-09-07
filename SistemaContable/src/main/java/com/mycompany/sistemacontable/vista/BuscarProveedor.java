@@ -4,6 +4,17 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import com.mycompany.sistemacontable.modelo.Cliente;
+import com.mycompany.sistemacontable.modelo.ClienteT;
+import com.mycompany.sistemacontable.modelo.Persona;
+import com.mycompany.sistemacontable.modelo.Proveedor;
+import com.mycompany.sistemacontable.modelo.ProveedorT;
+import com.mycompany.sistemacontable.persistencia.ClienteJpaController;
+import com.mycompany.sistemacontable.persistencia.PersonaJpaController;
+import com.mycompany.sistemacontable.persistencia.ProveedorJpaController;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Usuario
@@ -14,7 +25,9 @@ public class BuscarProveedor extends javax.swing.JFrame {
      * Creates new form BuscarProveedor
      */
     public BuscarProveedor() {
+        
         initComponents();
+        crear_lista();
     }
 
     /**
@@ -26,31 +39,42 @@ public class BuscarProveedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        xProveedor = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         nombre = new javax.swing.JLabel();
-        empresa = new javax.swing.JLabel();
+        empresaPro = new javax.swing.JLabel();
         apellido = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        txProveedor = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        xProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                xProveedorActionPerformed(evt);
+            }
+        });
+        xProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                xProveedorKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                xProveedorKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                xProveedorKeyTyped(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel1.setText("PROVEEDOR: ");
 
-        nombre.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        nombre.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
 
-        empresa.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        empresaPro.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
 
-        apellido.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        apellido.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        txProveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -61,7 +85,12 @@ public class BuscarProveedor extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        txProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txProveedorMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(txProveedor);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton1.setText("ENVIAR");
@@ -73,11 +102,8 @@ public class BuscarProveedor extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -85,24 +111,24 @@ public class BuscarProveedor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(empresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(empresaPro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(15, 15, 15))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(xProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(xProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(nombre)
                     .addComponent(apellido)
-                    .addComponent(empresa))
+                    .addComponent(empresaPro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
@@ -113,23 +139,142 @@ public class BuscarProveedor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void xProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xProveedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_xProveedorActionPerformed
+
+    private void xProveedorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xProveedorKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xProveedorKeyPressed
+
+    private void xProveedorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xProveedorKeyReleased
+        // TODO add your handling code here:
+        metodo();
+    }//GEN-LAST:event_xProveedorKeyReleased
+
+    private void xProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xProveedorKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xProveedorKeyTyped
+
+    private void txProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txProveedorMouseClicked
+        // TODO add your handling code here:
+        nombre.setText((String) txProveedor.getValueAt(txProveedor.getSelectedRow(), 1));
+        apellido.setText((String) txProveedor.getValueAt(txProveedor.getSelectedRow(), 2));
+        empresaPro.setText((String) txProveedor.getValueAt(txProveedor.getSelectedRow(), 5));
+        
+    }//GEN-LAST:event_txProveedorMouseClicked
 
     /**
      * @param args the command line arguments
      */
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apellido;
-    private javax.swing.JLabel empresa;
+    private javax.swing.JLabel empresaPro;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel nombre;
+    private javax.swing.JTable txProveedor;
+    private javax.swing.JTextField xProveedor;
     // End of variables declaration//GEN-END:variables
+    private void crear_lista() {
+        /*listax.add("Juana");
+        listax.add("Judas");
+        listax.add("Juan");
+        listax.add("Jose");
+        listax.add("Manuel");
+        listax.add("Marco");
+        listax.add("Maria");
+        listax.add("Flor");
+        listax.add("Fernanda");
+        listax.add("Fernando");
+        listax.add("Andres");
+        listax.add("Miguel");
+        listax.add("Alvaro");
+        listax.add("Luis");*/
+    }
+
+    private void metodo() {
+        /*yy.setText("");
+        //System.out.println(xx.getText());
+        yy.setText(xx.getText());
+
+        int dim = yy.getText().length();
+
+        System.out.println(dim);*/
+        //xx.doLayout();
+
+        imprimirEmpresa(xProveedor.getText());
+
+        txProveedor.setModel(new Tabla_Proveedor(generarl(xProveedor.getText())));
+
+        //System.out.println("holaaa");
+        /* 
+            
+        }*/
+    }
+
+    private ArrayList<ProveedorT> generarl(String empresa) {
+        List<Proveedor> listax = new ProveedorJpaController().getList();
+        List<Persona> listaxc = new PersonaJpaController().getList();
+        System.out.println(listax.size() + "sadsadassssssssssssss");
+        empresa = empresa.trim();
+        int num = 0;
+
+        ArrayList<ProveedorT> lx = new ArrayList<>();
+
+        for (int i = 0; i < listax.size(); i++) {
+            String no = listax.get(i).getEmpresa();
+            String n = "";
+            int dim = 0;
+            if (no.length() <= empresa.length()) {
+                dim = no.length();
+            } else {
+                dim = empresa.length();
+            }
+            for (int f = 0; f < dim; f++) {
+                if (!(empresa.substring(f, f + 1).equals(no.substring(f, f + 1)))) {
+
+                    break;
+
+                } else {
+                    if (f == empresa.length() - 1) {
+                        ProveedorT pro=new ProveedorT();
+                        pro.setRuc(listax.get(i).getRuc());
+                        pro.setNombre(personas(listax.get(i).getPersona().getId()).getNombre());
+                        pro.setApellido(personas(listax.get(i).getPersona().getId()).getApellido());
+                        pro.setTelefono(personas(listax.get(i).getPersona().getId()).getDireccion());
+                        pro.setDireccion(personas(listax.get(i).getPersona().getId()).getDireccion());
+                        pro.setEmpresa(listax.get(i).getEmpresa());
+                        lx.add(pro);
+                    }
+                }
+
+            }
+        }
+        return lx;
+
+    }
+
+    void imprimirEmpresa(String empresa) {
+
+        for (int i = 0; i < generarl(empresa).size(); i++) {
+            System.out.println(generarl(empresa).get(i));
+            System.out.println("--------------------------------------");
+
+        }
+    }
+         public Persona personas(int id){
+       List<Persona>lisp=new PersonaJpaController().getList();
+        Persona per=new Persona();
+        //System.out.println("dimension "+lis_id.size());
+        for (int i = 0; i < lisp.size(); i++) {
+            if (lisp.get(i).getId()==id) {
+                per=lisp.get(i);
+                }
+        }
+        
+        return per;
+    }
 }

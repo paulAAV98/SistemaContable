@@ -303,7 +303,7 @@ public class Controlador_All {
 
     }
      
-     public ArrayList<ProveedorT> generar1(String empresa) {
+     public ArrayList<ProveedorT> generarl(String empresa) {
         List<Proveedor> listax = new ProveedorJpaController().getList();
         
         empresa=empresa.trim();

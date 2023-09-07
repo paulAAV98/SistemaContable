@@ -22,6 +22,7 @@ public class BuscarCliente extends javax.swing.JFrame {
     /**
      * Creates new form BuscarCliente
      */
+    
     public BuscarCliente() {
         initComponents();
         crear_lista();
@@ -83,7 +84,7 @@ public class BuscarCliente extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel1.setText("CLIENTE:");
 
-        nombrec.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 14)); // NOI18N
+        nombrec.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
 
         apellidoc.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
 
@@ -137,6 +138,11 @@ public class BuscarCliente extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        VtnBalanceDebe vtnDebe = new VtnBalanceDebe();
+        vtnDebe.setDatoN(nombrec.getText());
+        vtnDebe.setDatoA(apellidoc.getText());
+        vtnDebe.setVisible(true);
+        this.setVisible(false);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

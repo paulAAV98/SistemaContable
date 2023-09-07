@@ -128,6 +128,15 @@ public class ProveedorJpaController implements Serializable {
             em.close();
         }
     }
+    
+    public Proveedor findProveedorP(int id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Proveedor.class, id);
+        } finally {
+            em.close();
+        }
+    }
 
     public int getProveedorCount() {
         EntityManager em = getEntityManager();
@@ -151,6 +160,12 @@ public class ProveedorJpaController implements Serializable {
 		Query query = em.createQuery(jsql, Proveedor.class);
 		List<Proveedor> lista = query.getResultList();
 		return lista;
+	}
+    
+     public Proveedor buscar(String ruc) {
+         EntityManager em = getEntityManager();
+		Proveedor r = em.find(Proveedor.class, 1);
+		return r;
 	}
 
 

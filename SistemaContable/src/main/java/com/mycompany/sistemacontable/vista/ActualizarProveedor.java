@@ -230,7 +230,7 @@ public class ActualizarProveedor extends javax.swing.JInternalFrame {
         
         try {
             // TODO add your handling code here:
-            pro = new Proveedor_Controlador().getProveedorid(new Controlador_All().id_perP(ruc.getText()));
+            pro = new Proveedor_Controlador().getProveedor(new Controlador_All().id_perP(ruc.getText()));
 
             per = new Persona_Controlador().getPersona(pro.getPersona().getId());
 
@@ -257,7 +257,7 @@ public class ActualizarProveedor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
        
         if (new Controlador_All().id_perP(ruc.getText()) != 0) {
-             pro = new Proveedor_Controlador().getProveedorid(new Controlador_All().id_perP(ruc.getText()));
+             pro = new Proveedor_Controlador().getProveedor(new Controlador_All().id_perP(ruc.getText()));
              per = new Persona_Controlador().getPersona(pro.getPersona().getId());
             nom.setText(per.getNombre());
             ape.setText(per.getApellido());

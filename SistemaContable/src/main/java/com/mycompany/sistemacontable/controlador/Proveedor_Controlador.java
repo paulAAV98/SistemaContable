@@ -37,15 +37,10 @@ public class Proveedor_Controlador {
         return proJpa.findProveedorEntities();
 
     }
-
-    public Proveedor getProveedor(Proveedor proveedor) {
-
-        return proJpa.findProveedor(proveedor.getId());
-    }
     
-     public Proveedor getProveedorid(int id) {
+     public Proveedor getProveedor(int id) {
 
-        return proJpa.findProveedor(id);
+        return proJpa.findProveedorP(id);
     }
 }
 
