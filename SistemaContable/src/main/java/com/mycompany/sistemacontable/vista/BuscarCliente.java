@@ -145,6 +145,7 @@ public class BuscarCliente extends javax.swing.JFrame {
         vtnDebe.setVisible(true);
         this.setVisible(false);
         
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void xxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xxKeyPressed
@@ -210,6 +211,8 @@ public class BuscarCliente extends javax.swing.JFrame {
         
         imprimir(xx.getText());
         
+        
+        
         txCliente.setModel(new Tabla_Clientes(new Controlador_All().generar(xx.getText())));
         
         //System.out.println("holaaa");
@@ -220,6 +223,7 @@ public class BuscarCliente extends javax.swing.JFrame {
             
         }*/
     }
+    
      /*private ArrayList<ClienteT> generar(String nombre) {
         List<Cliente> listaxc = new ClienteJpaController().getList();
         List<Persona> listax = new PersonaJpaController().getList();

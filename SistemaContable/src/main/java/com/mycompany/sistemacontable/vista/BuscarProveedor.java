@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import com.mycompany.sistemacontable.controlador.Controlador_All;
 import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.ClienteT;
 import com.mycompany.sistemacontable.modelo.Persona;
@@ -14,6 +15,8 @@ import com.mycompany.sistemacontable.persistencia.PersonaJpaController;
 import com.mycompany.sistemacontable.persistencia.ProveedorJpaController;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,6 +31,7 @@ public class BuscarProveedor extends javax.swing.JFrame {
         
         initComponents();
         crear_lista();
+        
     }
 
     /**
@@ -207,15 +211,17 @@ public class BuscarProveedor extends javax.swing.JFrame {
 
         imprimirEmpresa(xProveedor.getText());
 
-        txProveedor.setModel(new Tabla_Proveedor(generarl(xProveedor.getText())));
+        txProveedor.setModel(new Tabla_Proveedor (new Controlador_All().generarl(xProveedor.getText())));
 
         //System.out.println("holaaa");
         /* 
             
         }*/
     }
+    
+    
 
-    private ArrayList<ProveedorT> generarl(String empresa) {
+    /*private ArrayList<ProveedorT> generarl(String empresa) {
         List<Proveedor> listax = new ProveedorJpaController().getList();
         List<Persona> listaxc = new PersonaJpaController().getList();
         System.out.println(listax.size() + "sadsadassssssssssssss");
@@ -256,25 +262,15 @@ public class BuscarProveedor extends javax.swing.JFrame {
         return lx;
 
     }
-
+*/
     void imprimirEmpresa(String empresa) {
 
-        for (int i = 0; i < generarl(empresa).size(); i++) {
-            System.out.println(generarl(empresa).get(i));
+        for (int i = 0; i < new Controlador_All().generarl(empresa).size(); i++) {
+            System.out.println(new Controlador_All().generarl(empresa).get(i));
             System.out.println("--------------------------------------");
 
         }
     }
-         public Persona personas(int id){
-       List<Persona>lisp=new PersonaJpaController().getList();
-        Persona per=new Persona();
-        //System.out.println("dimension "+lis_id.size());
-        for (int i = 0; i < lisp.size(); i++) {
-            if (lisp.get(i).getId()==id) {
-                per=lisp.get(i);
-                }
-        }
-        
-        return per;
-    }
+
+    
 }
