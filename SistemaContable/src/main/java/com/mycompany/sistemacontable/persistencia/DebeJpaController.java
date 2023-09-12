@@ -71,6 +71,16 @@ public class DebeJpaController implements Serializable {
             }
         }
     }
+    
+    public List<Debe> getList(){
+        EntityManager em =  null;
+        
+        em = getEntityManager();
+        String jsql = "SELECT de FROM Debe de";
+        Query query = em.createQuery(jsql, Debe.class);
+        List<Debe> lista = query.getResultList();
+        return lista;
+    }
 
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
