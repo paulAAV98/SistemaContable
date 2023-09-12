@@ -40,10 +40,10 @@ public class Tabla_Debe extends AbstractTableModel{
         
         switch (col){
             case 0:
-                emp.setCliente((Cliente) value);
+                emp.setNombre((String) value);
                 break;
             case 2:
-                emp.setCliente((Cliente) value);
+                emp.setApellido((String) value);
                 break;
             case 3:
                 emp.setTipoPago((String) value);
@@ -74,9 +74,9 @@ public class Tabla_Debe extends AbstractTableModel{
         
         switch (col){
             case 0:
-                return emp.getCliente().getPersona().getNombre();
+                return emp.getNombre();
             case 2:
-                return emp.getCliente().getPersona().getApellido();
+                return emp.getApellido();
             case 3:
                 return emp.getTipoPago();
             case 4:

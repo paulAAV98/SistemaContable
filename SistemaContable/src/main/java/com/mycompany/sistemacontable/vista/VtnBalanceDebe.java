@@ -4,7 +4,9 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import com.mycompany.sistemacontable.controlador.Debe_Controlador;
 import com.mycompany.sistemacontable.modelo.Debe;
+import com.mycompany.sistemacontable.modelo.Persona;
 
 /**
  *
@@ -216,9 +218,12 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Debe deb=new Debe();
+        Persona per = new Persona();
         deb.setTipoPago(comboTipo.getActionCommand());
         deb.setValor(Integer.parseInt(txtValor.getText()));
         deb.setDetalle(txtDetalle.getText());
+        Debe_Controlador debC = new Debe_Controlador();
+        debC.crear(deb);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

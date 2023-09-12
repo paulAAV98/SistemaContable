@@ -13,5 +13,8 @@ public class ControladoraPersistencia {
     PersonaJpaController perJpa;
     ProveedorJpaController proJpa;
     BalanceJpaController balJpa;
+    DebeJpaController debJpa;
+    HaberJpaController habJpa;
+    DetalleJpaController detJpa;
 
 }

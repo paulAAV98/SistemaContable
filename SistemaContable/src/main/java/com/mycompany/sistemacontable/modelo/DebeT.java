@@ -12,11 +12,9 @@ public class DebeT {
     
     private int id;
     
-    private String detalle, tipoPago;
+    private String nombre, apellido, detalle, tipoPago;
     
     private double valor;
-    
-    private Cliente cliente;
 
     public int getId() {
         return id;
@@ -24,6 +22,22 @@ public class DebeT {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getDetalle() {
@@ -50,15 +64,4 @@ public class DebeT {
         this.valor = valor;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-    
-    
-    
-    
 }
