@@ -6,10 +6,13 @@ package com.mycompany.sistemacontable.controlador;
 
 import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.ClienteT;
+import com.mycompany.sistemacontable.modelo.Debe;
+import com.mycompany.sistemacontable.modelo.DebeT;
 import com.mycompany.sistemacontable.modelo.Persona;
 import com.mycompany.sistemacontable.modelo.Proveedor;
 import com.mycompany.sistemacontable.modelo.ProveedorT;
 import com.mycompany.sistemacontable.persistencia.ClienteJpaController;
+import com.mycompany.sistemacontable.persistencia.DebeJpaController;
 import com.mycompany.sistemacontable.persistencia.PersonaJpaController;
 import com.mycompany.sistemacontable.persistencia.ProveedorJpaController;
 
@@ -152,6 +155,28 @@ public class Controlador_All {
         return lisp_c;
     }
     
+        public List<Integer>listaDebes(){
+        
+        List<Debe>lisp=new DebeJpaController().getList();
+        
+        List<Integer>lisp_c=new ArrayList<>();
+        
+        for (int i = 0; i < lisp.size(); i++) {
+            lisp_c.add(lisp.get(i).getId());
+            
+        }
+        
+        return lisp_c;
+    }
+        
+     public ArrayList<DebeT> listaDeb(){
+         List <Debe> lisd = new DebeJpaController().getList();
+         
+         ArrayList<DebeT> lx= new ArrayList<>();
+         
+         return lx;
+     }
+    
     public int valor_idc(){
         List<Integer>lis_id=listaclientes();
         int id=0;
@@ -209,6 +234,20 @@ public class Controlador_All {
     
      public int valor_idp(){
         List<Integer>lis_id=listaProveedores();
+        int id=0;
+        System.out.println("dimension "+lis_id.size());
+        for (int i = 0; i < lis_id.size(); i++) {
+            if (lis_id.get(i)>id) {
+                id=lis_id.get(i);
+            
+                }
+        }
+        
+        return id;
+    }
+     
+          public int valor_idd(){
+        List<Integer>lis_id=listaDebes();
         int id=0;
         System.out.println("dimension "+lis_id.size());
         for (int i = 0; i < lis_id.size(); i++) {

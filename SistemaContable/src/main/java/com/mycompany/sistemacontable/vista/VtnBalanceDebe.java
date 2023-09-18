@@ -4,7 +4,10 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import com.mycompany.sistemacontable.controlador.Cliente_Controlador;
+import com.mycompany.sistemacontable.controlador.Controlador_All;
 import com.mycompany.sistemacontable.controlador.Debe_Controlador;
+import com.mycompany.sistemacontable.controlador.Persona_Controlador;
 import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.Debe;
 import com.mycompany.sistemacontable.modelo.Persona;
@@ -18,6 +21,8 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
     /**
      * Creates new form VtnBalanceDebe
      */
+    Cliente cli = null;
+    Persona per = null;
     private String nombreCliente;
     private String apellidoCliente;
     private String cedulaCliente;
@@ -62,9 +67,9 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         comboTipo = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        txtValor = new javax.swing.JTextField();
+        valor = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtDetalle = new javax.swing.JTextField();
+        detalle = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txDebe = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
@@ -90,7 +95,7 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
         jLabel4.setText("TIPO DE PAGO:");
 
         comboTipo.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
-        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Tarjeta de Débito", "Tarjeta de Crédito", "Transferencia Bancaria" }));
+        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione --", "Efectivo", "Tarjeta de Débito", "Tarjeta de Crédito", "Transferencia Bancaria" }));
         comboTipo.setToolTipText("");
         comboTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,19 +106,19 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel5.setText("VALOR:");
 
-        txtValor.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        txtValor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtValor.setToolTipText("");
-        txtValor.addActionListener(new java.awt.event.ActionListener() {
+        valor.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        valor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        valor.setToolTipText("");
+        valor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorActionPerformed(evt);
+                valorActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel6.setText("DETALLE:");
 
-        txtDetalle.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        detalle.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txDebe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,7 +175,7 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
                                 .addComponent(apellidoC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(9, 9, 9)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -181,7 +186,7 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addComponent(txtDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(detalle, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))
@@ -201,11 +206,11 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(detalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,23 +233,27 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboTipoActionPerformed
 
-    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
+    private void valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorActionPerformed
+    }//GEN-LAST:event_valorActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        cli = new Cliente_Controlador().getCliente(new Controlador_All().id_per(cedulaC.getText()));
+        per = new Persona_Controlador().getPersona(cli.getPersona().getId());
         Debe deb=new Debe();
-        Cliente cliente = new Cliente();
-        cliente.setCedula(cedulaCliente);
-        deb.setCliente(cliente);
+        
+        cli.setCedula(cedulaC.getText());
+        deb.setCliente(cli);
+        deb.setId(0);
         deb.setTipoPago(comboTipo.getSelectedItem().toString());
-        deb.setValor(Double.parseDouble(txtValor.getText()));
-        deb.setDetalle(txtDetalle.getText());
+        deb.setValor(Double.parseDouble(valor.getText()));
+        deb.setDetalle(detalle.getText());
         Debe_Controlador debC = new Debe_Controlador();
         debC.crear(deb);
         System.out.println("Resultado del label");
         System.out.println(nombreC.getText());
+        limpiar();
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -263,6 +272,7 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
     private javax.swing.JLabel apellidoC;
     private javax.swing.JLabel cedulaC;
     private javax.swing.JComboBox<String> comboTipo;
+    private javax.swing.JTextField detalle;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -273,7 +283,15 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nombreC;
     private javax.swing.JTable txDebe;
-    private javax.swing.JTextField txtDetalle;
-    private javax.swing.JTextField txtValor;
+    private javax.swing.JTextField valor;
     // End of variables declaration//GEN-END:variables
+
+private void limpiar(){
+    cedulaC.setText("");
+    nombreC.setText("");
+    apellidoC.setText("");
+    valor.setText("");
+    detalle.setText("");
+    }
+
 }
