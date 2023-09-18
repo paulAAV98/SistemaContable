@@ -71,6 +71,16 @@ public class EmpleadoJpaController implements Serializable {
             }
         }
     }
+    
+        public List<Empleado> getList(){
+        EntityManager em = null;
+        
+        em= getEntityManager();
+        String jsql = "SELECT e FROM Empleado e";
+        Query query = em.createQuery(jsql, Empleado.class);
+        List<Empleado> lista = query.getResultList();
+        return lista;
+    }
 
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;

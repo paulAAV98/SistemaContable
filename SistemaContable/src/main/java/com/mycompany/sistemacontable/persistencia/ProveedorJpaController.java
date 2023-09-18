@@ -5,6 +5,7 @@
 package com.mycompany.sistemacontable.persistencia;
 
 import com.mycompany.sistemacontable.modelo.Cliente;
+import com.mycompany.sistemacontable.modelo.Empleado;
 import com.mycompany.sistemacontable.modelo.Proveedor;
 import com.mycompany.sistemacontable.persistencia.exceptions.NonexistentEntityException;
 import java.io.Serializable;
@@ -72,6 +73,8 @@ public class ProveedorJpaController implements Serializable {
             }
         }
     }
+    
+
 
     
     
