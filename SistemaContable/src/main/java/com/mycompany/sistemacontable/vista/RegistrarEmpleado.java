@@ -56,6 +56,7 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         jLabel2.setText("CEDULA");
 
         jTextField1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -67,6 +68,7 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         jLabel3.setText("NOMBRE");
 
         jTextField2.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -78,6 +80,7 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         jLabel4.setText("CARGO");
 
         jTextField3.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -89,6 +92,7 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         jLabel5.setText("APELLIDO");
 
         jTextField4.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
@@ -100,6 +104,7 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         jLabel6.setText("DIRECCION");
 
         jTextField5.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
@@ -111,6 +116,7 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         jLabel7.setText("CODIGO EMPLEADO");
 
         jTextField6.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
@@ -122,6 +128,7 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         jLabel8.setText("TELEFONO");
 
         jTextField7.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
