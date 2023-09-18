@@ -34,7 +34,7 @@ public class Empleado implements Serializable {
     private String codigoEmleado;
     
     @OneToOne
-    @JoinColumn(name = "id_cli_per")
+    @JoinColumn(name = "id_emp_per")
     private Persona persona;
 
     public Empleado(int id, String cedula, String cargo, String codigoEmleado, Persona persona) {

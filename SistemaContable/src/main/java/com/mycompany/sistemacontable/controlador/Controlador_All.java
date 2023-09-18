@@ -313,6 +313,37 @@ public class Controlador_All {
 
         return id;
     }
+    
+    public int id_perE(String cedula){
+        int id = 0;
+        List<Empleado> lise = new EmpleadoJpaController().getList();
+        
+        List<Integer> lisp_c = new ArrayList<>();
+        
+        for(int i = 0; i < lise.size(); i++){
+            if(lise.get(i).getCedula().equals(cedula)){
+                id = lise.get(i).getId();
+                break;
+            }
+        }
+        return id;
+    }
+    
+    public int id_perEE(String codigo){
+        int id = 0;
+        
+        List<Empleado> lise = new EmpleadoJpaController().getList();
+        
+        List<Integer> lisp_c = new ArrayList<>();
+        
+        for(int i=0; i<lise.size(); i++){
+            if(lise.get(i).getCodigoEmleado().equals(codigo)){
+                id = lise.get(i).getId();
+                break;
+            }
+        }
+        return id;
+    }
 
     public ArrayList<ClienteT> generar(String nombre) {
         List<Persona> listax = new PersonaJpaController().getList();

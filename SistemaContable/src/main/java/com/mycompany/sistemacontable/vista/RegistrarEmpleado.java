@@ -285,7 +285,7 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
             emp.setPersona(per1);
             
             new Empleado_Controlador().crear(emp);
-            JOptionPane.showMessageDialog(null,"Cliente Creado");  
+            JOptionPane.showMessageDialog(null,"Empleado Creado");  
              limpiar();
          }else{
              JOptionPane.showMessageDialog(null,"CEDULA INVALIDA");   
