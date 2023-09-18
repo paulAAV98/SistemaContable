@@ -29,12 +29,15 @@ public class MenuVtn extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        Cliente = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        Proveedor = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        Empleado = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         Balance = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
 
@@ -60,7 +63,7 @@ public class MenuVtn extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Cliente");
+        Cliente.setText("Cliente");
 
         jMenuItem1.setText("Registrar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +71,7 @@ public class MenuVtn extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        Cliente.add(jMenuItem1);
 
         jMenuItem2.setText("Actualizar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -76,11 +79,11 @@ public class MenuVtn extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        Cliente.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(Cliente);
 
-        jMenu2.setText("Proveedor");
+        Proveedor.setText("Proveedor");
 
         jMenuItem3.setText("Registrar");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +91,7 @@ public class MenuVtn extends javax.swing.JFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        Proveedor.add(jMenuItem3);
 
         jMenuItem4.setText("Actualizar");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -96,9 +99,29 @@ public class MenuVtn extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        Proveedor.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(Proveedor);
+
+        Empleado.setText("Empleado");
+
+        jMenuItem6.setText("Registrar");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        Empleado.add(jMenuItem6);
+
+        jMenuItem7.setText("Actualizar ");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        Empleado.add(jMenuItem7);
+
+        jMenuBar1.add(Empleado);
 
         Balance.setText("Balance");
 
@@ -165,6 +188,16 @@ public class MenuVtn extends javax.swing.JFrame {
         vtnBalGen.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        RegistrarEmpleado regEmp=new RegistrarEmpleado();
+        regEmp.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -172,15 +205,18 @@ public class MenuVtn extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Balance;
+    private javax.swing.JMenu Cliente;
+    private javax.swing.JMenu Empleado;
+    private javax.swing.JMenu Proveedor;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     // End of variables declaration//GEN-END:variables
 }
