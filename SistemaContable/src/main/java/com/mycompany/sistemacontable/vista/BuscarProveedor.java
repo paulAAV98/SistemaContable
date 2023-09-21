@@ -165,8 +165,8 @@ public class BuscarProveedor extends javax.swing.JFrame {
     private void txProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txProveedorMouseClicked
         // TODO add your handling code here:
         ruc.setText((String) txProveedor.getValueAt(txProveedor.getSelectedRow(), 0));
-        nombre.setText((String) txProveedor.getValueAt(txProveedor.getSelectedRow(), 2));
-        apellido.setText((String) txProveedor.getValueAt(txProveedor.getSelectedRow(), 5));
+        nombre.setText((String) txProveedor.getValueAt(txProveedor.getSelectedRow(), 1));
+        apellido.setText((String) txProveedor.getValueAt(txProveedor.getSelectedRow(), 2));
         
     }//GEN-LAST:event_txProveedorMouseClicked
 

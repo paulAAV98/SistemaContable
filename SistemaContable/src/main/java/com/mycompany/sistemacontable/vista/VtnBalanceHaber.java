@@ -33,7 +33,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
     
     public void setDatoNP(String datoNP){
         this.nombreProveedor = datoNP;
-        rucpr.setText(datoNP);    
+        nombrepr.setText(datoNP);    
     }
     
     public void setDatoAP(String datoAP){
@@ -43,7 +43,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
     
     public void setDatoRP(String datoRP){
         this.rucProveedor = datoRP;
-        nombrepr.setText(datoRP);
+        rucpr.setText(datoRP);
     }
     
     public void setDatoCE(String datoCE){
@@ -170,11 +170,11 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         jComboBox2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione --", "Proveedor", "Empleado", "Administrativo" }));
 
-        nombrepr.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        nombrepr.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
 
-        rucpr.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        rucpr.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
 
-        apellidopr.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        apellidopr.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
 
         codigoemp.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
         codigoemp.setText(" ");
@@ -244,12 +244,13 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(nombrepr, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rucpr, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(apellidopr, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nombrepr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(apellidopr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(rucpr, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jToggleButton1)))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
