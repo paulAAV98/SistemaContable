@@ -57,17 +57,7 @@ public class BuscarEmpleado extends javax.swing.JFrame {
             }
         });
 
-        txEmpleado.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        txEmpleado.setModel(new Tabla_Empleados());
         txEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txEmpleadoMouseClicked(evt);
@@ -122,7 +112,7 @@ public class BuscarEmpleado extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jButton1)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -134,6 +124,8 @@ public class BuscarEmpleado extends javax.swing.JFrame {
        vtnHaber.setDatoCE(codigoE.getText());
        vtnHaber.setDatoNE(nombreE.getText());
        vtnHaber.setDatoAE(apellidoE.getText());
+       vtnHaber.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txEmpleadoMouseClicked

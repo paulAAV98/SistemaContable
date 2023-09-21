@@ -130,6 +130,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel3.setText("TIPO DE PAGO: ");
 
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Tarjeta de Credito", "Transferencia Bancaria", "Tarjeta de Debito" }));
 
         jLabel4.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
@@ -143,7 +144,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        jLabel5.setText("TIPO DE PAGO: ");
+        jLabel5.setText("DETALLE:");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -167,7 +168,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel6.setText("PROVEEDOR:");
 
-        jComboBox2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jComboBox2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione --", "Proveedor", "Empleado", "Administrativo" }));
 
         nombrepr.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
@@ -191,11 +192,11 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
+                                .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,8 +273,8 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton3))
                 .addGap(13, 13, 13)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
-                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(35, 35, 35))
         );
