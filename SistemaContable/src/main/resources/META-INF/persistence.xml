@@ -8,14 +8,13 @@
     <class>com.mycompany.sistemacontable.modelo.Detalle</class>
     <class>com.mycompany.sistemacontable.modelo.Cliente</class>
     <class>com.mycompany.sistemacontable.modelo.Debe</class>
-    <class>com.mycompany.sistemacontable.modelo.Haber</class>
     <class>com.mycompany.sistemacontable.modelo.Empleado</class>
+    <class>com.mycompany.sistemacontable.modelo.Haber</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/joyeriaJPA?serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="joyeria"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="j0yer1@"/>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

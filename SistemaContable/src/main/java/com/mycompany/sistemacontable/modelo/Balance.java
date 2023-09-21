@@ -39,6 +39,9 @@ public class Balance implements Serializable {
     @Column(name = "bal_total")
     private double total;
     
+    @Column(name = "bal_nota")
+    private String nota;
+    
     @OneToOne
     @JoinColumn(name="det_id")
     private Detalle detalle;
@@ -75,6 +78,14 @@ public class Balance implements Serializable {
 
     public void setDetalle(Detalle detalle) {
         this.detalle = detalle;
+    }
+
+    public String getNota() {
+        return nota;
+    }
+
+    public void setNota(String nota) {
+        this.nota = nota;
     }
     
 

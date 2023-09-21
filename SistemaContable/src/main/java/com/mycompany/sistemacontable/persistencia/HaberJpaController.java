@@ -34,6 +34,7 @@ public class HaberJpaController implements Serializable {
     public HaberJpaController(){
         emf = Persistence.createEntityManagerFactory("joyeriaJPAPU");
     }
+    
 
     public void create(Haber haber) {
         EntityManager em = null;

@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemacontable.modelo;
 
+import java.io.Serial;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,25 +19,45 @@ import javax.persistence.OneToOne;
  * @author Usuario
  */
 @Entity
-public class Haber implements Serializable {
+public class Haber implements Serializable{
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="hab_id")
     private int id;
     
-    @Column(name="deb_detalle")
+    @Column(name="hab_detalle")
     private String detalle;
     
-    @Column(name="deb_tipopago")
+    @Column(name="hab_tipoBeneficiario")
+    private String tipoBeneficiario;
+    
+    @Column(name="hab_tipoPago")
     private String tipoPago;
     
-    @Column(name="deb_valor")
+    @Column(name="hab_valor")
     private double valor;
     
     @OneToOne
     @JoinColumn(name="pro_ruc")
     private Proveedor proveedor;
+    
+    @OneToOne
+    @JoinColumn(name="emp_codigoEmpleado")
+    private Empleado empleado;
+
+    public Haber() {
+    }
+
+    public Haber(int id, String detalle, String tipoBeneficiario, String tipoPago, double valor, Proveedor proveedor, Empleado empleado) {
+        this.id = id;
+        this.detalle = detalle;
+        this.tipoBeneficiario = tipoBeneficiario;
+        this.tipoPago = tipoPago;
+        this.valor = valor;
+        this.proveedor = proveedor;
+        this.empleado = empleado;
+    }
 
     public int getId() {
         return id;
@@ -52,6 +73,14 @@ public class Haber implements Serializable {
 
     public void setDetalle(String detalle) {
         this.detalle = detalle;
+    }
+
+    public String getTipoBeneficiario() {
+        return tipoBeneficiario;
+    }
+
+    public void setTipoBeneficiario(String tipoBeneficiario) {
+        this.tipoBeneficiario = tipoBeneficiario;
     }
 
     public String getTipoPago() {
@@ -77,11 +106,14 @@ public class Haber implements Serializable {
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }
-    
-    
-    
-    
-    
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
     
     
     

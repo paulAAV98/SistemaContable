@@ -13,28 +13,28 @@ import java.util.List;
  *
  * @author Usuario
  */
-public class Haber_Contolador  {
-    
-    HaberJpaController habJpa=new HaberJpaController();
-    
-    public void crear(Haber haber){
+public class Haber_Controlador {
+
+    HaberJpaController habJpa = new HaberJpaController();
+
+    public void crear(Haber haber) {
         habJpa.create(haber);
     }
-    
+
     public void eliminar(Haber haber) throws NonexistentEntityException {
         habJpa.destroy(haber.getId());
     }
-    
-    public void editar(Haber haber) throws Exception{
+
+    public void editar(Haber haber) throws Exception {
         habJpa.edit(haber);
     }
-    
-    public List<Haber> listaHaber(){
+
+    public List<Haber> listaHaber() {
         return habJpa.findHaberEntities();
     }
-    
-    public Haber getHaber(Haber haber){
+
+    public Haber getHaber(Haber haber) {
         return habJpa.findHaber(haber.getId());
     }
-    
+
 }
