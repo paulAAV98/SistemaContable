@@ -9,6 +9,7 @@ import com.mycompany.sistemacontable.modelo.ClienteT;
 import com.mycompany.sistemacontable.modelo.Debe;
 import com.mycompany.sistemacontable.modelo.DebeT;
 import com.mycompany.sistemacontable.modelo.Empleado;
+import com.mycompany.sistemacontable.modelo.EmpleadoT;
 import com.mycompany.sistemacontable.modelo.Persona;
 import com.mycompany.sistemacontable.modelo.Proveedor;
 import com.mycompany.sistemacontable.modelo.ProveedorT;
@@ -420,6 +421,51 @@ public class Controlador_All {
                         cl.setDireccion(personas(listax.get(i).getPersona().getId()).getDireccion());
                         cl.setTelefono(personas(listax.get(i).getPersona().getId()).getTelefono());
                         cl.setEmpresa(listax.get(i).getEmpresa());
+                        lx.add(cl);
+
+                    }
+                }
+
+            }
+        }
+
+        return lx;
+
+    }
+    
+        public ArrayList<EmpleadoT> generarC(String codigo) {
+        List<Empleado> listax = new EmpleadoJpaController().getList();
+
+        codigo = codigo.trim();
+        int num = 0;
+
+        ArrayList<EmpleadoT> lx = new ArrayList<>();
+
+        for (int i = 0; i < listax.size(); i++) {
+            String no = listax.get(i).getCodigoEmleado();
+            String n = "";
+            int dim = 0;
+            if (no.length() <= codigo.length()) {
+                dim = no.length();
+            } else {
+                dim = codigo.length();
+            }
+            for (int f = 0; f < dim; f++) {
+                if (!(codigo.substring(f, f + 1).toUpperCase().equals(no.substring(f, f + 1).toUpperCase()))) {
+
+                    break;
+
+                } else {
+                    if (f == codigo.length() - 1) {
+
+                        EmpleadoT cl = new EmpleadoT();
+                        cl.setCedula(listax.get(i).getCedula());
+                        cl.setNombre(personas(listax.get(i).getPersona().getId()).getNombre());
+                        cl.setApellido(personas(listax.get(i).getPersona().getId()).getApellido());
+                        cl.setCargo(listax.get(i).getCargo());
+                        cl.setCodigoEmpleado(listax.get(i).getCodigoEmleado());
+                        cl.setDireccion(personas(listax.get(i).getPersona().getId()).getDireccion());
+                        cl.setTelefono(personas(listax.get(i).getPersona().getId()).getTelefono());
                         lx.add(cl);
 
                     }

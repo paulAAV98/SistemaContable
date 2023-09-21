@@ -4,6 +4,8 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import com.mycompany.sistemacontable.controlador.Controlador_All;
+
 /**
  *
  * @author Usuario
@@ -15,6 +17,7 @@ public class BuscarEmpleado extends javax.swing.JFrame {
      */
     public BuscarEmpleado() {
         initComponents();
+        
     }
 
     /**
@@ -27,21 +30,34 @@ public class BuscarEmpleado extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nombreE = new javax.swing.JLabel();
+        codigoE = new javax.swing.JLabel();
+        xxEmpleado = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        txEmpleado = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        apellidoE = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel1.setText("EMPLEADO:");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
+        nombreE.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
+        codigoE.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        xxEmpleado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                xxEmpleadoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                xxEmpleadoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                xxEmpleadoKeyTyped(evt);
+            }
+        });
+
+        txEmpleado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -52,42 +68,56 @@ public class BuscarEmpleado extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        txEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txEmpleadoMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(txEmpleado);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton1.setText("ENVIAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        apellidoE.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 115, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120))
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(xxEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(codigoE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nombreE, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(apellidoE, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(xxEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(codigoE, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombreE, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(apellidoE, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
@@ -98,18 +128,62 @@ public class BuscarEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        VtnBalanceHaber vtnHaber = new VtnBalanceHaber();
+       vtnHaber.setDatoCE(codigoE.getText());
+       vtnHaber.setDatoNE(nombreE.getText());
+       vtnHaber.setDatoAE(apellidoE.getText());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txEmpleadoMouseClicked
+        // TODO add your handling code here:
+        codigoE.setText((String) txEmpleado.getValueAt(txEmpleado.getSelectedRow(), 4));
+        nombreE.setText((String) txEmpleado.getValueAt(txEmpleado.getSelectedRow(), 1));
+        apellidoE.setText((String) txEmpleado.getValueAt(txEmpleado.getSelectedRow(), 2));
+    }//GEN-LAST:event_txEmpleadoMouseClicked
+
+    private void xxEmpleadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xxEmpleadoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xxEmpleadoKeyPressed
+
+    private void xxEmpleadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xxEmpleadoKeyReleased
+        // TODO add your handling code here:
+        metodo();
+    }//GEN-LAST:event_xxEmpleadoKeyReleased
+
+    private void xxEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xxEmpleadoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xxEmpleadoKeyTyped
+
     /**
      * @param args the command line arguments
      */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel apellidoE;
+    private javax.swing.JLabel codigoE;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel nombreE;
+    private javax.swing.JTable txEmpleado;
+    private javax.swing.JTextField xxEmpleado;
     // End of variables declaration//GEN-END:variables
+
+    private void metodo(){
+        imprimirCodigo(xxEmpleado.getText());
+        
+        txEmpleado.setModel(new Tabla_Empleados (new Controlador_All().generarC(xxEmpleado.getText())));
+    }
+
+    void imprimirCodigo(String codigo) {
+
+        for (int i = 0; i < new Controlador_All().generarC(codigo).size(); i++) {
+            System.out.println(new Controlador_All().generarC(codigo).get(i));
+            System.out.println("--------------------------------------");
+
+        }
+    }
 }
