@@ -11,6 +11,7 @@ import com.mycompany.sistemacontable.controlador.Persona_Controlador;
 import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.Debe;
 import com.mycompany.sistemacontable.modelo.Persona;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -242,7 +243,10 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
         cli = new Cliente_Controlador().getCliente(new Controlador_All().id_per(cedulaC.getText()));
         per = new Persona_Controlador().getPersona(cli.getPersona().getId());
         Debe deb=new Debe();
-        
+        String opcion=(String)comboTipo.getSelectedItem();
+        if(opcion.equals("Seleccione --")){
+            JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
+        }else{
         cli.setCedula(cedulaC.getText());
         deb.setCliente(cli);
         deb.setId(0);
@@ -254,7 +258,7 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
         System.out.println("Resultado del label");
         System.out.println(nombreC.getText());
         limpiar();
-        
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
