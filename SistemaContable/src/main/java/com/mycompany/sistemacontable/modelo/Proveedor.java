@@ -36,6 +36,15 @@ public class Proveedor implements Serializable {
     @JoinColumn(name = "id_pro_per")
     private Persona persona;
 
+    public Proveedor(int id, String ruc, String empresa, Persona persona) {
+        this.id = id;
+        this.ruc = ruc;
+        this.empresa = empresa;
+        this.persona = persona;
+    }
+
+    public Proveedor() {
+    }
 
     public int getId() {
         return id;

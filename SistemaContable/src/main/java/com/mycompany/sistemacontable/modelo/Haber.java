@@ -46,6 +46,19 @@ public class Haber implements Serializable{
     @JoinColumn(name="emp_codigoEmpleado")
     private Empleado empleado;
 
+    public Haber() {
+    }
+
+    public Haber(int id, String detalle, String tipoBeneficiario, String tipoPago, double valor, Proveedor proveedor, Empleado empleado) {
+        this.id = id;
+        this.detalle = detalle;
+        this.tipoBeneficiario = tipoBeneficiario;
+        this.tipoPago = tipoPago;
+        this.valor = valor;
+        this.proveedor = proveedor;
+        this.empleado = empleado;
+    }
+
     public int getId() {
         return id;
     }

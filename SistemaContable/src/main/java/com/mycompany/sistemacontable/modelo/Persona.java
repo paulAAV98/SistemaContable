@@ -37,6 +37,17 @@ public class Persona implements Serializable {
     @Column(name = "per_telefono")
     private String telefono;
 
+    public Persona() {
+    }
+
+    public Persona(int id, String nombre, String apellido, String direccion, String telefono) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
+
     public int getId() {
         return id;
     }
