@@ -35,16 +35,6 @@ public class Cliente implements Serializable {
     @JoinColumn(name = "id_cli_per")
     private Persona persona;
 
-    public Cliente(int id, String cedula, String correo, Persona persona) {
-        this.id = id;
-        this.cedula = cedula;
-        this.correo = correo;
-        this.persona = persona;
-    }
-
-    public Cliente() {
-    }
-
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }

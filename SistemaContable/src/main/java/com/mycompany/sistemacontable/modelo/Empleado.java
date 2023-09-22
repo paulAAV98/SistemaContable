@@ -37,17 +37,6 @@ public class Empleado implements Serializable {
     @JoinColumn(name = "id_emp_per")
     private Persona persona;
 
-    public Empleado(int id, String cedula, String cargo, String codigoEmleado, Persona persona) {
-        this.id = id;
-        this.cedula = cedula;
-        this.cargo = cargo;
-        this.codigoEmleado = codigoEmleado;
-        this.persona = persona;
-    }
-
-    public Empleado() {
-    }
-
     public int getId() {
         return id;
     }

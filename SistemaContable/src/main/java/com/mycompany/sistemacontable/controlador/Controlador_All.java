@@ -248,6 +248,17 @@ public class Controlador_All {
 
         return empresa;
     }
+    
+    public double sumaValor(double valor){
+        List<Debe> lisd = new DebeJpaController().getList();
+        double suma = 0;
+        for(int i = 0; i < lisd.size(); i++){
+            if(lisd.get(i).getValor() == valor){
+                suma = suma + lisd.get(i).getValor();
+            }
+        }
+       return suma; 
+    }
 
     public int valor_idp() {
         List<Integer> lis_id = listaProveedores();
