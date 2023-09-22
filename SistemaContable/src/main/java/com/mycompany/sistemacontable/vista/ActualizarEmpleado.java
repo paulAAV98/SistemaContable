@@ -234,8 +234,8 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
        // TODO add your handling code here:
-       if(new Controlador_All().id_perEE(codigo.getText())!=0){
-           emp = new Empleado_Controlador().getEmpleado(new Controlador_All().id_perEE(codigo.getText()));
+       if(new Controlador_All().id_perEC(codigo.getText())!=0){
+           emp = new Empleado_Controlador().getEmpleado(new Controlador_All().id_perEC(codigo.getText()));
            
            per = new Persona_Controlador().getPersona(emp.getPersona().getId());
            cedula.setText(emp.getCedula());
@@ -250,7 +250,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
          try  {
         // TODO add your handling code here:
-            emp = new Empleado_Controlador().getEmpleado(new Controlador_All().id_perEE(codigo.getText()));
+            emp = new Empleado_Controlador().getEmpleado(new Controlador_All().id_perEC(codigo.getText()));
             
             per = new Persona_Controlador().getPersona(emp.getPersona().getId());
             

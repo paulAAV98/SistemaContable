@@ -4,9 +4,16 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import com.mycompany.sistemacontable.controlador.Controlador_All;
+import com.mycompany.sistemacontable.controlador.Empleado_Controlador;
+import com.mycompany.sistemacontable.controlador.Haber_Controlador;
+import com.mycompany.sistemacontable.controlador.Persona_Controlador;
+import com.mycompany.sistemacontable.controlador.Proveedor_Controlador;
 import com.mycompany.sistemacontable.modelo.Empleado;
+import com.mycompany.sistemacontable.modelo.Haber;
 import com.mycompany.sistemacontable.modelo.Persona;
 import com.mycompany.sistemacontable.modelo.Proveedor;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +25,9 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
      * Creates new form VtnHaber
      */
     Proveedor pro = null;
+    Proveedor prot = null;
     Empleado emp = null;
+    Empleado empt = null;
     Persona per = null;
     private String nombreProveedor;
     private String apellidoProveedor;
@@ -26,47 +35,45 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
     private String codigoEmpleado;
     private String nombreEmpleado;
     private String apellidoEmpleado;
-    
+
     public VtnBalanceHaber() {
         initComponents();
     }
-    
-    public void setDatoNP(String datoNP){
+
+    public void setDatoNP(String datoNP) {
         this.nombreProveedor = datoNP;
-        nombrepr.setText(datoNP);    
+        nombrepr.setText(datoNP);
     }
-    
-    public void setDatoAP(String datoAP){
+
+    public void setDatoAP(String datoAP) {
         this.apellidoProveedor = datoAP;
         apellidopr.setText(datoAP);
     }
-    
-    public void setDatoRP(String datoRP){
+
+    public void setDatoRP(String datoRP) {
         this.rucProveedor = datoRP;
         rucpr.setText(datoRP);
     }
-    
-    public void setDatoCE(String datoCE){
+
+    public void setDatoCE(String datoCE) {
         this.codigoEmpleado = datoCE;
         codigoemp.setText(datoCE);
     }
-    
-    public void setDatoNE(String datoNE){
+
+    public void setDatoNE(String datoNE) {
         this.nombreEmpleado = datoNE;
         nombremp.setText(datoNE);
     }
-    
-    public void setDatoAE(String datoAE){
+
+    public void setDatoAE(String datoAE) {
         this.apellidoEmpleado = datoAE;
         apellidoemp.setText(datoAE);
     }
-    
-    private void metodo(){
+
+    private void metodo() {
         System.out.println("Resultado de los labels");
         System.out.println(nombrepr.getText());
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,17 +91,17 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         apellidoemp = new javax.swing.JLabel();
         jToggleButton2 = new javax.swing.JToggleButton();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboPago = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        valor = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        detalle = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jToggleButton3 = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        comboBeneficiario = new javax.swing.JComboBox<>();
         nombrepr = new javax.swing.JLabel();
         rucpr = new javax.swing.JLabel();
         apellidopr = new javax.swing.JLabel();
@@ -114,10 +121,10 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
             }
         });
 
-        nombremp.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        nombremp.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
         nombremp.setText(" ");
 
-        apellidoemp.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        apellidoemp.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
 
         jToggleButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jToggleButton2.setText("BUSCAR");
@@ -130,16 +137,16 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel3.setText("TIPO DE PAGO: ");
 
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Tarjeta de Credito", "Transferencia Bancaria", "Tarjeta de Debito" }));
+        comboPago.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        comboPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione --", "Efectivo", "Tarjeta de Credito", "Transferencia Bancaria", "Tarjeta de Debito" }));
 
         jLabel4.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel4.setText("VALOR: ");
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        valor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        valor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                valorActionPerformed(evt);
             }
         });
 
@@ -164,12 +171,17 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
 
         jToggleButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jToggleButton3.setText("AGREGAR");
+        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel6.setText("PROVEEDOR:");
 
-        jComboBox2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione --", "Proveedor", "Empleado", "Administrativo" }));
+        comboBeneficiario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        comboBeneficiario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione --", "Proveedor", "Empleado", "Administrativo" }));
 
         nombrepr.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
 
@@ -194,27 +206,28 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(detalle, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(codigoemp, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(nombremp, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(apellidoemp, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(codigoemp, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(rucpr, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nombrepr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(nombremp, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(148, 148, 148)
-                                        .addComponent(rucpr, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(nombrepr, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(apellidopr, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(19, 19, 19)
+                                        .addComponent(apellidopr, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(apellidoemp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -222,18 +235,18 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(comboPago, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(51, 51, 51)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField1)))
+                                .addComponent(valor)))
                         .addGap(15, 15, 15))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(comboBeneficiario, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
@@ -243,7 +256,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBeneficiario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nombrepr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,14 +276,15 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(15, 15, 15)
+                        .addComponent(comboPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(detalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton3))
                 .addGap(13, 13, 13)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,36 +296,121 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_valorActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        BuscarProveedor busPro=new BuscarProveedor();
+        BuscarProveedor busPro = new BuscarProveedor();
         busPro.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
-        BuscarEmpleado busEm=new BuscarEmpleado();
+        BuscarEmpleado busEm = new BuscarEmpleado();
         busEm.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+        // TODO add your handling code here:
+        String code = "00000";
+        String rucpro = "001";
+        prot = new Proveedor_Controlador().getProveedor(new Controlador_All().id_perP(rucpro));
+        empt = new Empleado_Controlador().getEmpleado(new Controlador_All().id_perEC(code));
+        pro = new Proveedor_Controlador().getProveedor(new Controlador_All().id_perP(rucpr.getText()));
+        emp = new Empleado_Controlador().getEmpleado(new Controlador_All().id_perEC(codigoemp.getText()));
+        per = new Persona_Controlador().getPersona(pro.getPersona().getId());
+        per = new Persona_Controlador().getPersona(emp.getPersona().getId());
+        per = new Persona_Controlador().getPersona(prot.getPersona().getId());
+        per = new Persona_Controlador().getPersona(empt.getPersona().getId());
+        Haber hab = new Haber();
+        String beneficiario = (String) comboBeneficiario.getSelectedItem();
+        String pago = (String) comboPago.getSelectedItem();
+
+        if (beneficiario.equals("Seleccion --")) {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado ningun tipo de beneficiario");
+        } else if (beneficiario.equals("Proveedor")) {
+            if (pago.equals("Seleccion --")) {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
+            } else {
+                pro.setRuc(rucpr.getText());
+                hab.setProveedor(pro);
+                empt.setCodigoEmleado(code);
+                hab.setEmpleado(empt);
+                hab.setId(0);
+                hab.setTipoBeneficiario(comboPago.getSelectedItem().toString());
+                hab.setTipoPago(comboPago.getSelectedItem().toString());
+                hab.setValor(Double.parseDouble(valor.getText()));
+                hab.setDetalle(detalle.getText());
+                Haber_Controlador habC = new Haber_Controlador();
+                habC.crear(hab);
+                System.out.println("Resultado de Empleado");
+                System.out.println(nombremp.getText());
+                limpiar();
+                JOptionPane.showMessageDialog(null, "Se hizo un pago a un proveedor");
+            }
+
+        } else if (beneficiario.equals("Empleado")) {
+            if (pago.equals("Seleccion --")) {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
+            } else {
+                emp.setCodigoEmleado(codigoemp.getText()); 
+                hab.setEmpleado(emp);
+                prot.setRuc(rucpro);
+                hab.setProveedor(prot);
+                hab.setId(0);
+                hab.setTipoBeneficiario(comboPago.getSelectedItem().toString());
+                hab.setTipoPago(comboPago.getSelectedItem().toString());
+                hab.setValor(Double.parseDouble(valor.getText()));
+                hab.setDetalle(detalle.getText());
+                Haber_Controlador habC = new Haber_Controlador();
+                habC.crear(hab);
+                System.out.println("Resultado de Proveedor");
+                System.out.println(nombrepr.getText());
+                limpiar();
+                JOptionPane.showMessageDialog(null, "Se hizo pago a un empleado");
+            }
+
+        } else if (beneficiario.equals(beneficiario.equals("Administrativo"))) {
+            if (pago.equals("Seleccion --")) {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
+            } else {
+                hab.setId(0);
+                prot.setRuc(rucpro);
+                hab.setProveedor(prot);
+                empt.setCodigoEmleado(code);
+                hab.setEmpleado(empt);
+                hab.setTipoBeneficiario(comboPago.getSelectedItem().toString());
+                hab.setTipoPago(comboPago.getSelectedItem().toString());
+                hab.setValor(Double.parseDouble(valor.getText()));
+                hab.setDetalle(detalle.getText());
+                Haber_Controlador habC = new Haber_Controlador();
+                habC.crear(hab);
+                System.out.println("Resultado de Empleado");
+                System.out.println(nombremp.getText());
+                System.out.println("Resultado de Proveedor");
+                System.out.println(nombrepr.getText());
+                limpiar();
+                JOptionPane.showMessageDialog(null, "Se hizo un pago administrativo");
+            }
+        }
+    }//GEN-LAST:event_jToggleButton3ActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apellidoemp;
     private javax.swing.JLabel apellidopr;
     private javax.swing.JLabel codigoemp;
+    private javax.swing.JComboBox<String> comboBeneficiario;
+    private javax.swing.JComboBox<String> comboPago;
+    private javax.swing.JTextField detalle;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -320,13 +419,26 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JLabel nombremp;
     private javax.swing.JLabel nombrepr;
     private javax.swing.JLabel rucpr;
+    private javax.swing.JTextField valor;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiar() {
+        rucpr.setText("");
+        nombrepr.setText("");
+        apellidopr.setText("");
+        codigoemp.setText("");
+        nombremp.setText("");
+        apellidoemp.setText("");
+        valor.setText("");
+        detalle.setText("");
+        comboPago.setSelectedItem("Seleccione --");
+        comboBeneficiario.setSelectedItem("Seleccione --");
+    }
+
 }

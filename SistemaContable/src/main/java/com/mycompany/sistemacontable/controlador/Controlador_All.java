@@ -296,7 +296,7 @@ public class Controlador_All {
         return id;
     }
 
-    public int id_perP(String cedula) {
+    public int id_perP(String ruc) {
 
         int id = 0;
         List<Proveedor> lisp = new ProveedorJpaController().getList();
@@ -304,7 +304,7 @@ public class Controlador_All {
         List<Integer> lisp_c = new ArrayList<>();
 
         for (int i = 0; i < lisp.size(); i++) {
-            if (lisp.get(i).getRuc().equals(cedula)) {
+            if (lisp.get(i).getRuc().equals(ruc)) {
                 id = lisp.get(i).getId();
                 break;
 
@@ -315,7 +315,7 @@ public class Controlador_All {
         return id;
     }
     
-    public int id_perE(String cedula){
+    public int id_perEI(String cedula){
         int id = 0;
         List<Empleado> lise = new EmpleadoJpaController().getList();
         
@@ -330,7 +330,7 @@ public class Controlador_All {
         return id;
     }
     
-    public int id_perEE(String codigo){
+    public int id_perEC(String codigo){
         int id = 0;
         
         List<Empleado> lise = new EmpleadoJpaController().getList();
