@@ -51,6 +51,7 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         total = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        fecha = new javax.swing.JLabel();
 
         setTitle("BALANCE");
 
@@ -253,6 +254,8 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel16.setText("TOTAL:");
 
+        fecha.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -264,7 +267,10 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(644, 644, 644)
@@ -280,7 +286,9 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(fecha))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -320,6 +328,7 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel debe;
+    private javax.swing.JLabel fecha;
     private javax.swing.JLabel haber;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

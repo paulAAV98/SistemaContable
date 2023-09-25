@@ -84,7 +84,6 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         nombremp = new javax.swing.JLabel();
@@ -101,15 +100,11 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jToggleButton3 = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
-        comboBeneficiario = new javax.swing.JComboBox<>();
         nombrepr = new javax.swing.JLabel();
         rucpr = new javax.swing.JLabel();
         apellidopr = new javax.swing.JLabel();
         codigoemp = new javax.swing.JLabel();
-
-        jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("TIPO DE BENEFICIARIO:");
+        administrativo = new javax.swing.JLabel();
 
         jLabel2.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -142,6 +137,11 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
 
         comboPago.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         comboPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione --", "Efectivo", "Tarjeta de Credito", "Transferencia Bancaria", "Tarjeta de Debito" }));
+        comboPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboPagoActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -184,9 +184,6 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel6.setText("PROVEEDOR:");
 
-        comboBeneficiario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        comboBeneficiario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione --", "Proveedor", "Empleado", "Administrativo" }));
-
         nombrepr.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
 
         rucpr.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
@@ -226,11 +223,6 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(apellidoemp, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(comboBeneficiario, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rucpr, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,19 +237,23 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                             .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))))
                 .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(administrativo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addComponent(administrativo)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nombrepr, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(apellidopr, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(rucpr, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(rucpr, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -270,19 +266,17 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(0, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(comboBeneficiario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(comboPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 15, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -327,23 +321,19 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         per = new Persona_Controlador().getPersona(emp.getPersona().getId());
         per = new Persona_Controlador().getPersona(prot.getPersona().getId());
         per = new Persona_Controlador().getPersona(empt.getPersona().getId());
-        */
+         */
         Haber hab = new Haber();
-        String beneficiario = (String) comboBeneficiario.getSelectedItem();
         String pago = (String) comboPago.getSelectedItem();
-        
-        
-        if (beneficiario.equals("Seleccion --")) {
-            JOptionPane.showMessageDialog(null, "No ha seleccionado ningun tipo de beneficiario");
-        } else if (beneficiario.equals("Proveedor")) {
+        /*
+        if (apellidoemp.getText().equals("")) {
             pro = new Proveedor_Controlador().getProveedor(new Controlador_All().id_perP(rucpr.getText()));
-            if (pago.equals("Seleccion --")&&nombremp.getText().equals("")) {
+            if (pago.equals("Seleccion --")) {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
             } else {
                 hab.setProveedor(pro);
                 hab.setEmpleado(empt);
                 hab.setId(0);
-                hab.setTipoBeneficiario(comboPago.getSelectedItem().toString());
+                hab.setTipoBeneficiario("Proveedor");
                 hab.setTipoPago(comboPago.getSelectedItem().toString());
                 hab.setValor(Double.parseDouble(valor.getText()));
                 hab.setDetalle(detalle.getText());
@@ -351,20 +341,21 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                 habC.crear(hab);
                 System.out.println("Resultado de Empleado");
                 System.out.println(nombremp.getText());
+                System.out.println("*********RESULTADO DE EMPLEADO**********");
+                System.out.println(empt);
                 limpiar();
                 JOptionPane.showMessageDialog(null, "Se hizo un pago a un proveedor");
             }
 
-        } else if (beneficiario.equals("Empleado")) {
+        }else if (nombrepr.getText().equals("")) {
             emp = new Empleado_Controlador().getEmpleado(new Controlador_All().id_perEC(codigoemp.getText()));
-            if (pago.equals("Seleccion --")&& nombrepr.getText().equals("")) {
-                comboPago.setSelectedItem("Empleado");
+            if (pago.equals("Seleccion --")) {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
             } else { 
                 hab.setEmpleado(emp);
                 hab.setProveedor(prot);
                 hab.setId(0);
-                hab.setTipoBeneficiario(comboPago.getSelectedItem().toString());
+                hab.setTipoBeneficiario("Empleado");
                 hab.setTipoPago(comboPago.getSelectedItem().toString());
                 hab.setValor(Double.parseDouble(valor.getText()));
                 hab.setDetalle(detalle.getText());
@@ -372,18 +363,22 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                 habC.crear(hab);
                 System.out.println("Resultado de Proveedor");
                 System.out.println(nombrepr.getText());
+                System.out.println("*********RESULTADO DE PROVEEDOR**********");
+                System.out.println(empt);
                 limpiar();
                 JOptionPane.showMessageDialog(null, "Se hizo pago a un empleado");
             }
 
-        } else if (beneficiario.equals(beneficiario.equals("Administrativo"))) {
+        } else if (administrativo.getText().equals("")) {
+                   prot = new Proveedor_Controlador().getProveedor(1);
+                   empt = new Empleado_Controlador().getEmpleado(1);
             if (pago.equals("Seleccion --")) {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
             } else {
                 hab.setId(0);
                 hab.setProveedor(prot);
                 hab.setEmpleado(empt);
-                hab.setTipoBeneficiario(comboPago.getSelectedItem().toString());
+                hab.setTipoBeneficiario("Administrativo");
                 hab.setTipoPago(comboPago.getSelectedItem().toString());
                 hab.setValor(Double.parseDouble(valor.getText()));
                 hab.setDetalle(detalle.getText());
@@ -397,21 +392,93 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Se hizo un pago administrativo");
             }
         }
+         */
+        if (nombrepr.getText().equals("") && apellidoemp.getText().equals("")) {
+            prot = new Proveedor_Controlador().getProveedor(1);
+            empt = new Empleado_Controlador().getEmpleado(1);
+            if (pago.equals("Seleccion --")) {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
+            } else {
+                hab.setId(0);
+                hab.setProveedor(prot);
+                hab.setEmpleado(empt);
+                hab.setTipoBeneficiario("Administrativo");
+                hab.setTipoPago(comboPago.getSelectedItem().toString());
+                hab.setValor(Double.parseDouble(valor.getText()));
+                hab.setDetalle(detalle.getText());
+                Haber_Controlador habC = new Haber_Controlador();
+                habC.crear(hab);
+                System.out.println("Resultado de Empleado");
+                System.out.println(nombremp.getText());
+                System.out.println("Resultado de Proveedor");
+                System.out.println(nombrepr.getText());
+                limpiar();
+                JOptionPane.showMessageDialog(null, "Se hizo un pago administrativo");
+            }
+            
+        }else if (apellidoemp.getText().equals("")) {
+            pro = new Proveedor_Controlador().getProveedor(new Controlador_All().id_perP(rucpr.getText()));
+            if (pago.equals("Seleccion --")) {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
+            } else {
+                hab.setProveedor(pro);
+                hab.setEmpleado(empt);
+                hab.setId(0);
+                hab.setTipoBeneficiario("Proveedor");
+                hab.setTipoPago(comboPago.getSelectedItem().toString());
+                hab.setValor(Double.parseDouble(valor.getText()));
+                hab.setDetalle(detalle.getText());
+                Haber_Controlador habC = new Haber_Controlador();
+                habC.crear(hab);
+                System.out.println("Resultado de Empleado");
+                System.out.println(nombremp.getText());
+                System.out.println("*********RESULTADO DE EMPLEADO**********");
+                System.out.println(empt);
+                limpiar();
+                JOptionPane.showMessageDialog(null, "Se hizo un pago a un proveedor");
+            }
+
+        }else if (nombrepr.getText().equals("")) {
+            emp = new Empleado_Controlador().getEmpleado(new Controlador_All().id_perEC(codigoemp.getText()));
+            if (pago.equals("Seleccion --")) {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
+            } else { 
+                hab.setEmpleado(emp);
+                hab.setProveedor(prot);
+                hab.setId(0);
+                hab.setTipoBeneficiario("Empleado");
+                hab.setTipoPago(comboPago.getSelectedItem().toString());
+                hab.setValor(Double.parseDouble(valor.getText()));
+                hab.setDetalle(detalle.getText());
+                Haber_Controlador habC = new Haber_Controlador();
+                habC.crear(hab);
+                System.out.println("Resultado de Proveedor");
+                System.out.println(nombrepr.getText());
+                System.out.println("*********RESULTADO DE PROVEEDOR**********");
+                System.out.println(empt);
+                limpiar();
+                JOptionPane.showMessageDialog(null, "Se hizo pago a un empleado");
+            }
+        }
     }//GEN-LAST:event_jToggleButton3ActionPerformed
+
+    private void comboPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPagoActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_comboPagoActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel administrativo;
     private javax.swing.JLabel apellidoemp;
     private javax.swing.JLabel apellidopr;
     private javax.swing.JLabel codigoemp;
-    private javax.swing.JComboBox<String> comboBeneficiario;
     private javax.swing.JComboBox<String> comboPago;
     private javax.swing.JTextField detalle;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -437,6 +504,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         apellidoemp.setText("");
         valor.setText("");
         detalle.setText("");
+        comboPago.setSelectedIndex(0);
     }
 
 }
