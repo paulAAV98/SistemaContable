@@ -9,14 +9,20 @@ package com.mycompany.sistemacontable.vista;
  * @author Usuario
  */
 public class VtnBalanceGeneral extends javax.swing.JFrame {
-
+    
+    TiempoPro time = new TiempoPro();
     /**
      * Creates new form VtnBalanceGeneral
      */
     public VtnBalanceGeneral() {
         initComponents();
+        mostrarTiempo();
 
         
+    }
+    
+    public void mostrarTiempo(){
+        fecha.setText(time.fechacomp);
     }
 
     /**
