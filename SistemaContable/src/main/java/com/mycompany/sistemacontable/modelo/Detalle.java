@@ -28,12 +28,15 @@ public class Detalle implements Serializable {
     @Column(name="det_id")
     private int id;
     
+    @Column(name="det_numero")
+    private int numero;
+    
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="det_id")
+    @JoinColumn(name="det_numero")
     private List<Debe> ingresos;
     
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="det_id")
+    @JoinColumn(name="det_numero")
     private List<Haber> pagos;
 
     public int getId() {
