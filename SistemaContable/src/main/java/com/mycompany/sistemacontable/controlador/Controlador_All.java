@@ -460,18 +460,19 @@ public class Controlador_All {
         List<Debe> listad = new DebeJpaController().getList();
         List<Cliente> listac = new ClienteJpaController().getList();
         ArrayList<DebeT> lx = new ArrayList<>();
+        /*
         System.out.println("****** LX *****");
         System.out.println(lx.size()+"lista LX");
         System.out.println("****** DEBE *****");
         System.out.println(listad.size()+"lista DEBE");
         System.out.println("****** CLIENTE *****");
         System.out.println(listac.size()+"lista CLIENTE");
-        
+        */
         int id = 0;
         
         for(int i = 0; i < listac.size(); i++){
             for(int j=0; j < listad.size(); j++){
-                if(listac.get(i).getId() <= listad.get(j).getId()){
+                if(listac.get(i).getId() == listad.get(i).getCliente().getId()){
                 DebeT deb = new DebeT();
                 deb.setNombre(listad.get(j).getCliente().getPersona().getNombre());
                 deb.setApellido(listad.get(j).getCliente().getPersona().getApellido());
