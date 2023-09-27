@@ -14,8 +14,8 @@ import javax.swing.table.AbstractTableModel;
  * @author Usuario
  */
 public class Tabla_Debe extends AbstractTableModel{
-    public String[] columnas = {"NOMBRE CLIENTE", "APELLIDO CLIENTE", "TIPO DE PAGO", "VALOR", "DESCRIPCION"};
-    public Class[] columnasTipos = {String.class, String.class, String.class, int.class, String.class};
+    public String[] columnas = {"NOMBRE CLIENTE","APELLIDO CLIENTE","DESCRIPCION","TIPO DE PAGO","VALOR"};
+    public Class[] columnasTipos = {String.class,String.class,String.class,double.class,String.class};
     ArrayList<DebeT> listaDebes = new ArrayList<>();
     
     public Tabla_Debe(ArrayList<DebeT> datos){
@@ -42,17 +42,17 @@ public class Tabla_Debe extends AbstractTableModel{
             case 0:
                 emp.setNombre((String) value);
                 break;
-            case 2:
+            case 1:
                 emp.setApellido((String) value);
                 break;
+            case 2:
+                emp.setDetalle((String) value);
+                break;
             case 3:
-                emp.setTipoPago((String) value);
+                emp.setDetalle((String) value);
                 break;
             case 4:
                 emp.setValor((double) value);
-                break;
-            case 5:
-                emp.setDetalle((String) value);
                 break;
                 
           
@@ -75,14 +75,14 @@ public class Tabla_Debe extends AbstractTableModel{
         switch (col){
             case 0:
                 return emp.getNombre();
-            case 2:
+            case 1:
                 return emp.getApellido();
+            case 2:
+                return emp.getDetalle();
             case 3:
                 return emp.getTipoPago();
             case 4:
                 return emp.getValor();
-            case 5:
-                return emp.getDetalle();
         }
         return new String();
     }

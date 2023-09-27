@@ -235,6 +235,19 @@ public class Controlador_All {
 
         return per;
     }
+    
+       public Cliente clientes(int id) {
+        List<Cliente> lisp = new ClienteJpaController().getList();
+        Cliente cli = new Cliente();
+        //System.out.println("dimension "+lis_id.size());
+        for (int i = 0; i < lisp.size(); i++) {
+            if (lisp.get(i).getId() == id) {
+                cli = lisp.get(i);
+            }
+        }
+
+        return cli;
+    }
 
     public String valor_empresa(int id) {
         List<Proveedor> lisp = new ProveedorJpaController().getList();
@@ -443,6 +456,40 @@ public class Controlador_All {
         return lx;
 
     }
+    public ArrayList<DebeT> reflejar(){
+        List<Debe> listad = new DebeJpaController().getList();
+        List<Cliente> listac = new ClienteJpaController().getList();
+        ArrayList<DebeT> lx = new ArrayList<>();
+        System.out.println("****** LX *****");
+        System.out.println(lx.size()+"lista LX");
+        System.out.println("****** DEBE *****");
+        System.out.println(listad.size()+"lista DEBE");
+        System.out.println("****** CLIENTE *****");
+        System.out.println(listac.size()+"lista CLIENTE");
+        
+        int id = 0;
+        
+        for(int i = 0; i < listac.size(); i++){
+            for(int j=0; j < listad.size(); j++){
+                if(listac.get(i).getId() <= listad.get(j).getId()){
+                DebeT deb = new DebeT();
+                deb.setNombre(listad.get(j).getCliente().getPersona().getNombre());
+                deb.setApellido(listad.get(j).getCliente().getPersona().getApellido());
+                deb.setTipoPago(listad.get(j).getTipoPago());
+                deb.setValor(listad.get(j).getValor());
+                deb.setDetalle(listad.get(j).getDetalle());
+                
+                lx.add(deb);
+       
+              }
+          
+        }
+        
+        
+
+        }
+        return lx;
+    }
     
         public ArrayList<EmpleadoT> generarC(String codigo) {
         List<Empleado> listax = new EmpleadoJpaController().getList();
@@ -490,3 +537,5 @@ public class Controlador_All {
     }
 
 }
+
+
