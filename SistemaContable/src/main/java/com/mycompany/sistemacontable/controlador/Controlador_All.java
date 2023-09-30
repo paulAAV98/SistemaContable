@@ -10,12 +10,15 @@ import com.mycompany.sistemacontable.modelo.Debe;
 import com.mycompany.sistemacontable.modelo.DebeT;
 import com.mycompany.sistemacontable.modelo.Empleado;
 import com.mycompany.sistemacontable.modelo.EmpleadoT;
+import com.mycompany.sistemacontable.modelo.Haber;
+import com.mycompany.sistemacontable.modelo.HaberT;
 import com.mycompany.sistemacontable.modelo.Persona;
 import com.mycompany.sistemacontable.modelo.Proveedor;
 import com.mycompany.sistemacontable.modelo.ProveedorT;
 import com.mycompany.sistemacontable.persistencia.ClienteJpaController;
 import com.mycompany.sistemacontable.persistencia.DebeJpaController;
 import com.mycompany.sistemacontable.persistencia.EmpleadoJpaController;
+import com.mycompany.sistemacontable.persistencia.HaberJpaController;
 import com.mycompany.sistemacontable.persistencia.PersonaJpaController;
 import com.mycompany.sistemacontable.persistencia.ProveedorJpaController;
 
@@ -235,8 +238,8 @@ public class Controlador_All {
 
         return per;
     }
-    
-       public Cliente clientes(int id) {
+
+    public Cliente clientes(int id) {
         List<Cliente> lisp = new ClienteJpaController().getList();
         Cliente cli = new Cliente();
         //System.out.println("dimension "+lis_id.size());
@@ -261,16 +264,16 @@ public class Controlador_All {
 
         return empresa;
     }
-    
-    public double sumaValor(double valor){
+
+    public double sumaValor(double valor) {
         List<Debe> lisd = new DebeJpaController().getList();
         double suma = 0;
-        for(int i = 0; i < lisd.size(); i++){
-            if(lisd.get(i).getValor() == valor){
+        for (int i = 0; i < lisd.size(); i++) {
+            if (lisd.get(i).getValor() == valor) {
                 suma = suma + lisd.get(i).getValor();
             }
         }
-       return suma; 
+        return suma;
     }
 
     public int valor_idp() {
@@ -338,31 +341,31 @@ public class Controlador_All {
 
         return id;
     }
-    
-    public int id_perEI(String cedula){
+
+    public int id_perEI(String cedula) {
         int id = 0;
         List<Empleado> lise = new EmpleadoJpaController().getList();
-        
+
         List<Integer> lisp_c = new ArrayList<>();
-        
-        for(int i = 0; i < lise.size(); i++){
-            if(lise.get(i).getCedula().equals(cedula)){
+
+        for (int i = 0; i < lise.size(); i++) {
+            if (lise.get(i).getCedula().equals(cedula)) {
                 id = lise.get(i).getId();
                 break;
             }
         }
         return id;
     }
-    
-    public int id_perEC(String codigo){
+
+    public int id_perEC(String codigo) {
         int id = 0;
-        
+
         List<Empleado> lise = new EmpleadoJpaController().getList();
-        
+
         List<Integer> lisp_c = new ArrayList<>();
-        
-        for(int i=0; i<lise.size(); i++){
-            if(lise.get(i).getCodigoEmleado().equals(codigo)){
+
+        for (int i = 0; i < lise.size(); i++) {
+            if (lise.get(i).getCodigoEmleado().equals(codigo)) {
                 id = lise.get(i).getId();
                 break;
             }
@@ -456,43 +459,76 @@ public class Controlador_All {
         return lx;
 
     }
-    public ArrayList<DebeT> reflejar(){
+
+    public ArrayList<DebeT> reflejar() {
         List<Debe> listad = new DebeJpaController().getList();
         List<Cliente> listac = new ClienteJpaController().getList();
         ArrayList<DebeT> lx = new ArrayList<>();
-        /*
+        
         System.out.println("****** LX *****");
         System.out.println(lx.size()+"lista LX");
         System.out.println("****** DEBE *****");
         System.out.println(listad.size()+"lista DEBE");
         System.out.println("****** CLIENTE *****");
         System.out.println(listac.size()+"lista CLIENTE");
-        */
+         
         int id = 0;
-        
-        for(int i = 0; i < listac.size(); i++){
-            for(int j=0; j < listad.size(); j++){
-                if(listac.get(i).getId() == listad.get(i).getCliente().getId()){
-                DebeT deb = new DebeT();
-                deb.setNombre(listad.get(j).getCliente().getPersona().getNombre());
-                deb.setApellido(listad.get(j).getCliente().getPersona().getApellido());
-                deb.setTipoPago(listad.get(j).getTipoPago());
-                deb.setValor(listad.get(j).getValor());
-                deb.setDetalle(listad.get(j).getDetalle());
-                
-                lx.add(deb);
-       
-              }
-          
-        }
-        
-        
+
+        for (int i = 0; i < listac.size(); i++) {
+            for (int j = 0; j < listad.size(); j++) {
+                if (listac.get(i).getId() == listad.get(i).getCliente().getId()) {
+                    DebeT deb = new DebeT();
+                    deb.setNombre(listad.get(j).getCliente().getPersona().getNombre());
+                    deb.setApellido(listad.get(j).getCliente().getPersona().getApellido());
+                    deb.setTipoPago(listad.get(j).getTipoPago());
+                    deb.setValor(listad.get(j).getValor());
+                    deb.setDetalle(listad.get(j).getDetalle());
+
+                    lx.add(deb);
+
+                }
+
+            }
 
         }
         return lx;
     }
-    
-        public ArrayList<EmpleadoT> generarC(String codigo) {
+
+    public ArrayList<HaberT> reflejarHaber() {
+        List<Haber> listah = new HaberJpaController().getList();
+        List<Proveedor> listap = new ProveedorJpaController().getList();
+        List<Empleado> listae = new EmpleadoJpaController().getList();
+        ArrayList<HaberT> lh = new ArrayList<>();
+        int id = 0;
+        System.out.println("****** LX *****");
+        System.out.println(lh.size() + "lista LX");
+        System.out.println("****** DEBE *****");
+        System.out.println(listah.size() + "lista DEBE");
+        System.out.println("****** CLIENTE *****");
+        System.out.println(listae.size() + "lista CLIENTE");
+        System.out.println("****** CLIENTE *****");
+        System.out.println(listap.size() + "lista CLIENTE");
+
+        for (int i = 0; i < listae.size(); i++) {
+            for (int j = 0; j < listae.size(); j++) {
+                    if (listae.get(j).getId() < listah.get(j).getEmpleado().getId()) {
+                        HaberT hab = new HaberT();
+                        hab.setNombre(listah.get(j).getEmpleado().getPersona().getNombre());
+                        hab.setApellido(listah.get(j).getEmpleado().getPersona().getApellido());
+                        hab.setTipoBeneficiario(lh.get(j).getTipoBeneficiario());
+                        hab.setDetalle(lh.get(j).getDetalle());
+                        hab.setTipoBeneficiario(lh.get(j).getTipoBeneficiario());
+                        hab.setValor(lh.get(j).getValor());
+
+                        lh.add(hab);
+                    }
+                }
+            }
+
+        return lh;
+    }
+
+    public ArrayList<EmpleadoT> generarC(String codigo) {
         List<Empleado> listax = new EmpleadoJpaController().getList();
 
         codigo = codigo.trim();
@@ -538,5 +574,3 @@ public class Controlador_All {
     }
 
 }
-
-

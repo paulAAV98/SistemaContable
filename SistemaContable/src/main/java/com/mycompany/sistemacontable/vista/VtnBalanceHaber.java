@@ -38,6 +38,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
 
     public VtnBalanceHaber() {
         initComponents();
+        metodo();
     }
 
     public void setDatoNP(String datoNP) {
@@ -71,8 +72,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
     }
 
     private void metodo() {
-        System.out.println("Resultado de los labels");
-        System.out.println(nombrepr.getText());
+        txHaber.setModel(new Tabla_Haber(new Controlador_All().reflejarHaber()));
     }
 
     /**
@@ -96,7 +96,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         detalle = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        txHaber = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jToggleButton3 = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
@@ -157,7 +157,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel5.setText("DETALLE:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        txHaber.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -168,7 +168,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(txHaber);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton1.setText("REFLEJAR");
@@ -396,7 +396,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         if (nombrepr.getText().equals("") && apellidoemp.getText().equals("")) {
             prot = new Proveedor_Controlador().getProveedor(1);
             empt = new Empleado_Controlador().getEmpleado(1);
-            if (pago.equals("Seleccion --")) {
+            if (pago.equals("Seleccione --")) {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
             } else {
                 hab.setId(0);
@@ -418,7 +418,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
             
         }else if (apellidoemp.getText().equals("")) {
             pro = new Proveedor_Controlador().getProveedor(new Controlador_All().id_perP(rucpr.getText()));
-            if (pago.equals("Seleccion --")) {
+            if (pago.equals("Seleccione --")) {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
             } else {
                 hab.setProveedor(pro);
@@ -440,7 +440,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
 
         }else if (nombrepr.getText().equals("")) {
             emp = new Empleado_Controlador().getEmpleado(new Controlador_All().id_perEC(codigoemp.getText()));
-            if (pago.equals("Seleccion --")) {
+            if (pago.equals("Seleccione --")) {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
             } else { 
                 hab.setEmpleado(emp);
@@ -459,6 +459,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                 limpiar();
                 JOptionPane.showMessageDialog(null, "Se hizo pago a un empleado");
             }
+            txHaber.setModel(new Tabla_Haber(new Controlador_All().reflejarHaber()));
         }
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
@@ -485,13 +486,13 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JLabel nombremp;
     private javax.swing.JLabel nombrepr;
     private javax.swing.JLabel rucpr;
+    private javax.swing.JTable txHaber;
     private javax.swing.JTextField valor;
     // End of variables declaration//GEN-END:variables
 
