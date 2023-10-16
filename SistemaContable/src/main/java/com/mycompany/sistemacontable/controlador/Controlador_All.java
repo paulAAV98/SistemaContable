@@ -472,14 +472,14 @@ public class Controlador_All {
         System.out.println("****** CLIENTE *****");
         System.out.println(listac.size()+"lista CLIENTE");
          
-        int id = 0;
+       
 
         for (int i = 0; i < listac.size(); i++) {
             for (int j = 0; j < listad.size(); j++) {
                 if (listac.get(i).getId() == listad.get(i).getCliente().getId()) {
                     DebeT deb = new DebeT();
-                    deb.setNombre(listad.get(j).getCliente().getPersona().getNombre());
-                    deb.setApellido(listad.get(j).getCliente().getPersona().getApellido());
+                    deb.setNombre(listad.get(i).getCliente().getPersona().getNombre());
+                    deb.setApellido(listad.get(i).getCliente().getPersona().getApellido());
                     deb.setTipoPago(listad.get(j).getTipoPago());
                     deb.setValor(listad.get(j).getValor());
                     deb.setDetalle(listad.get(j).getDetalle());
