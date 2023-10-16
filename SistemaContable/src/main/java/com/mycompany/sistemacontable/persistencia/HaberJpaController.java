@@ -72,6 +72,18 @@ public class HaberJpaController implements Serializable {
             }
         }
     }
+    
+     public List<Haber> getList(){
+        EntityManager em =  null;
+        
+        em = getEntityManager();
+        String jsql = "SELECT ha FROM Haber ha";
+        Query query = em.createQuery(jsql, Haber.class);
+        List<Haber> lista = query.getResultList();
+        return lista;
+    }
+    
+    
 
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
