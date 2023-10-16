@@ -456,6 +456,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                 System.out.println(nombrepr.getText());
                 System.out.println("*********RESULTADO DE PROVEEDOR**********");
                 System.out.println(empt);
+                System.out.println("Hola");
                 limpiar();
                 JOptionPane.showMessageDialog(null, "Se hizo pago a un empleado");
             }
