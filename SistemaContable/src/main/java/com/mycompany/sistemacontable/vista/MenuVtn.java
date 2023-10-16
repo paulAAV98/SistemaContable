@@ -4,6 +4,9 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import java.awt.BorderLayout;
+import javax.swing.JDesktopPane;
+
 /**
  *
  * @author Usuario
@@ -13,8 +16,22 @@ public class MenuVtn extends javax.swing.JFrame {
     /**
      * Creates new form MenuVtn
      */
+     //private JDesktopPane escritorio;
+    RegistrarCliente reg = new RegistrarCliente();
+     ActualizarCliente act = new ActualizarCliente();
+     RegistrarProveedor regPro = new RegistrarProveedor();
+      ActualizarProveedor actPro = new ActualizarProveedor();
+      ActualizarEmpleado actEmp = new ActualizarEmpleado();
+      RegistrarEmpleado regEmp = new RegistrarEmpleado();
+     
+    
+
     public MenuVtn() {
-        initComponents();
+         initComponents();
+        setLocationRelativeTo(null);
+        getContentPane().setLayout(new BorderLayout());
+		
+                
     }
 
     /**
@@ -27,7 +44,6 @@ public class MenuVtn extends javax.swing.JFrame {
     private void initComponents() {
 
         escritorio = new javax.swing.JDesktopPane();
-        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Cliente = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -44,21 +60,15 @@ public class MenuVtn extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEMA BALANCE");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/azul.jpg"))); // NOI18N
-
-        escritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 836, Short.MAX_VALUE)
+            .addGap(0, 920, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 1080, Short.MAX_VALUE)
         );
 
         Cliente.setText("Cliente");
@@ -139,9 +149,7 @@ public class MenuVtn extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,50 +161,127 @@ public class MenuVtn extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        RegistrarCliente reg=new RegistrarCliente();
-        escritorio.add(reg);
+       
+        
+        this.escritorio.remove(act);
+        this.escritorio.remove(  regPro);
+        this.escritorio.remove(  actPro);
+         this.escritorio.remove(  actEmp);
+          this.escritorio.remove(  regEmp);
+        if (reg.isClosed()) {
+
+            this.escritorio.remove(reg);
+            this.escritorio.add(reg);
+        } else {
+            this.escritorio.remove(reg);
+            this.escritorio.add(reg);
+        }
+
         reg.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        ActualizarCliente act=new ActualizarCliente();
-        escritorio.add(act);
+       
+        this.escritorio.remove(reg);
+        this.escritorio.remove(  regPro);
+        this.escritorio.remove(  actPro);
+         this.escritorio.remove(  actEmp);
+          this.escritorio.remove(  regEmp);
+      
+                
+       if (act.isClosed()) {
+
+            this.escritorio.remove(act);
+            this.escritorio.add(act);
+        } else {
+            this.escritorio.remove(act);
+            this.escritorio.add(act);
+        }
         act.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        RegistrarProveedor regPro=new RegistrarProveedor();
-        escritorio.add(regPro);
+         this.escritorio.remove(reg);
+        this.escritorio.remove(  act);
+          this.escritorio.remove(  actPro);
+           this.escritorio.remove(  actEmp);
+            this.escritorio.remove(  regEmp);
+        
+       if (regPro.isClosed()) {
+
+            this.escritorio.remove(regPro);
+            this.escritorio.add(regPro);
+        } else {
+            this.escritorio.remove(regPro);
+            this.escritorio.add(regPro);
+        }
+
+      
         regPro.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        ActualizarProveedor actPro=new ActualizarProveedor();
-        escritorio.add(actPro);
+         this.escritorio.remove(reg);
+        this.escritorio.remove(  act);
+        this.escritorio.remove(  regPro);
+         this.escritorio.remove(  actEmp);
+          this.escritorio.remove(  regEmp);
+       if (actPro.isClosed()) {
+
+            this.escritorio.remove(actPro);
+            this.escritorio.add(actPro);
+        } else {
+            this.escritorio.remove(actPro);
+            this.escritorio.add(actPro);
+        }
         actPro.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        VtnBalanceGeneral vtnBalGen=new VtnBalanceGeneral();
+        VtnBalanceGeneral vtnBalGen = new VtnBalanceGeneral();
         //escritorio.add(vtnBalGen);
         vtnBalGen.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-        ActualizarEmpleado actEmp=new ActualizarEmpleado();
-        escritorio.add(actEmp);
+        
+        this.escritorio.remove(reg);
+        this.escritorio.remove(  act);
+        this.escritorio.remove(  regPro);
+        this.escritorio.remove(  actPro);
+         this.escritorio.remove(  regEmp);
+       if (actEmp.isClosed()) {
+
+            this.escritorio.remove(actEmp);
+            this.escritorio.add(actEmp);
+        } else {
+            this.escritorio.remove(actEmp);
+            this.escritorio.add(actEmp);
+        }
         actEmp.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-        RegistrarEmpleado regEmp=new RegistrarEmpleado();
-        escritorio.add(regEmp);
+        
+        this.escritorio.remove(reg);
+        this.escritorio.remove(  act);
+        this.escritorio.remove(  regPro);
+        this.escritorio.remove(  actPro);
+         this.escritorio.remove(  actEmp);
+       if (regEmp.isClosed()) {
+
+            this.escritorio.remove(regEmp);
+            this.escritorio.add(regEmp);
+        } else {
+            this.escritorio.remove(regEmp);
+            this.escritorio.add(regEmp);
+        }
         regEmp.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
@@ -204,14 +289,12 @@ public class MenuVtn extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Balance;
     private javax.swing.JMenu Cliente;
     private javax.swing.JMenu Empleado;
     private javax.swing.JMenu Proveedor;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
