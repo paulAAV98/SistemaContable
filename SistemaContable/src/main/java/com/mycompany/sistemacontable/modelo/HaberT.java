@@ -69,6 +69,7 @@ public class HaberT {
     }
 
     public void setValor(double valor) {
+        System.out.println("valor");
         this.valor = valor;
     }
     
