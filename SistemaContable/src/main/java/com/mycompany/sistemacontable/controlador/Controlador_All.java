@@ -471,7 +471,7 @@ public class Controlador_All {
         
         for(int i = 0; i < listac.size(); i++){
             for(int j=0; j < listad.size(); j++){
-                if(listac.get(i).getId() <= listad.get(j).getId()){
+                if(listac.get(i).getId() == listad.get(j).getCliente().getId()){
                 DebeT deb = new DebeT();
                 deb.setNombre(listad.get(j).getCliente().getPersona().getNombre());
                 deb.setApellido(listad.get(j).getCliente().getPersona().getApellido());

@@ -243,12 +243,13 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
         // TODO add your handling code here:
         cli = new Cliente_Controlador().getCliente(new Controlador_All().id_per(cedulaC.getText()));
         per = new Persona_Controlador().getPersona(cli.getPersona().getId());
+        
         Debe deb=new Debe();
         String opcion=(String)comboTipo.getSelectedItem();
         if(opcion.equals("Seleccione --")){
             JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");
         }else{
-        cli.setCedula(cedulaC.getText());
+        //cli.setCedula(cedulaC.getText());
         deb.setCliente(cli);
         deb.setId(0);
         deb.setTipoPago(comboTipo.getSelectedItem().toString());
