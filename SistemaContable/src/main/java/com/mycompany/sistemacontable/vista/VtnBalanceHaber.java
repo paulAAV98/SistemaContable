@@ -312,9 +312,9 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
 
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
         // TODO add your handling code here:
-        String code = "00000";
-        String rucpro = "001";
-        prot = new Proveedor_Controlador().getProveedor(1);
+        //String code = "00000";
+        //String rucpro = "001";
+        prot = new Proveedor_Controlador().getProveedor(2);
         empt = new Empleado_Controlador().getEmpleado(1);
         /*
         per = new Persona_Controlador().getPersona(pro.getPersona().getId());
@@ -394,7 +394,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         }
          */
         if (nombrepr.getText().equals("") && apellidoemp.getText().equals("")) {
-            prot = new Proveedor_Controlador().getProveedor(1);
+            prot = new Proveedor_Controlador().getProveedor(2);
             empt = new Empleado_Controlador().getEmpleado(1);
             if (pago.equals("Seleccione --")) {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna opcion");

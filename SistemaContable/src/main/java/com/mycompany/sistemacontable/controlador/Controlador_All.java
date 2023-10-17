@@ -499,31 +499,68 @@ public class Controlador_All {
         int id = 0;
         System.out.println("****** LX *****");
         System.out.println(lh.size() + "lista LX");
-        System.out.println("****** DEBE *****");
-        System.out.println(listah.size() + "lista DEBE");
-        System.out.println("****** CLIENTE *****");
-        System.out.println(listae.size() + "lista CLIENTE");
-        System.out.println("****** CLIENTE *****");
-        System.out.println(listap.size() + "lista CLIENTE");
+        System.out.println("****** HABER *****");
+        System.out.println(listah.size() + "lista HABER");
+        System.out.println("****** EMPLEADO *****");
+        System.out.println(listae.size() + " - lista EMPLEADO");
+        System.out.println("****** PROVEEDOR *****");
+        System.out.println(listap.size() + " - lista PROVEEDOR");
 
-        for (int i = 0; i < listae.size(); i++) {
+        for (int i = 0; i < listah.size(); i++) {
+            
+            
             for (int j = 0; j < listae.size(); j++) {
-                if (listae.get(j).getId() < listah.get(j).getEmpleado().getId()) {
+                if (listah.get(i).getEmpleado().getId()==listae.get(j).getId() && listae.get(j).getId()!=1  ) {
                     HaberT hab = new HaberT();
-                    hab.setNombre(listah.get(j).getEmpleado().getPersona().getNombre());
-                    hab.setApellido(listah.get(j).getEmpleado().getPersona().getApellido());
-                    hab.setTipoBeneficiario(lh.get(j).getTipoBeneficiario());
-                    hab.setDetalle(lh.get(j).getDetalle());
-                    hab.setTipoBeneficiario(lh.get(j).getTipoBeneficiario());
-                    hab.setValor(lh.get(j).getValor());
+                    hab.setNombre(listah.get(i).getEmpleado().getPersona().getNombre());
+                    hab.setApellido(listah.get(i).getEmpleado().getPersona().getApellido());
+                    hab.setTipoBeneficiario(listah.get(i).getTipoBeneficiario());
+                    hab.setDetalle(listah.get(i).getDetalle());
+                    hab.setTipoPago(listah.get(i).getTipoPago());
+                    hab.setValor(listah.get(i).getValor());
 
                     lh.add(hab);
-                }
+                
             }
+                }
+                   for (int k = 0; k < listap.size(); k++) {
+                       if (listah.get(i).getProveedor().getId()==listap.get(k).getId() && listap.get(k).getId()!=2  ) {
+                        HaberT hab = new HaberT();
+                    hab.setNombre(listah.get(i).getProveedor().getPersona().getNombre());
+                    hab.setApellido(listah.get(i).getProveedor().getPersona().getApellido());
+                    hab.setTipoBeneficiario(listah.get(i).getTipoBeneficiario());
+                    hab.setDetalle(listah.get(i).getDetalle());
+                    hab.setTipoPago(listah.get(i).getTipoPago());
+                    hab.setValor(listah.get(i).getValor());
+
+                    lh.add(hab);
+                   } 
+                }
+                   for (int l = 0; l < listap.size(); l++) {
+                       if (listah.get(i).getProveedor().getId()==2 && listap.get(l).getId()==listah.get(i).getProveedor().getId() && listah.get(i).getEmpleado().getId()==1 && listah.get(i).getEmpleado().getId()==listae.get(l).getId()  ) {
+                        HaberT hab = new HaberT();
+                    hab.setNombre(listah.get(i).getProveedor().getPersona().getNombre());
+                    hab.setApellido(listah.get(i).getProveedor().getPersona().getApellido());
+                    hab.setTipoBeneficiario(listah.get(i).getTipoBeneficiario());
+                    hab.setDetalle(listah.get(i).getDetalle());
+                    hab.setTipoPago(listah.get(i).getTipoPago());
+                    hab.setValor(listah.get(i).getValor());
+
+                    lh.add(hab);
+                   } 
+                }
+                
+            
+            
+            
+                
         }
 
+        
         return lh;
     }
+    
+    
 
     public ArrayList<EmpleadoT> generarC(String codigo) {
         List<Empleado> listax = new EmpleadoJpaController().getList();
