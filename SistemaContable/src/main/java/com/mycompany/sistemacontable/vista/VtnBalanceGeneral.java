@@ -344,12 +344,14 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         
 
-        try {
+     /*   try {
             new Controlador_All().capturarPantalla();
         } catch (Exception ex) {
             Logger.getLogger(VtnBalanceGeneral.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
+     
+     
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
