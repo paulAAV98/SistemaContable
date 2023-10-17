@@ -28,8 +28,7 @@ public class Detalle implements Serializable {
     @Column(name="det_id")
     private int id;
     
-    @Column(name="det_numero")
-    private int numero;
+   
     
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="det_numero")
@@ -64,6 +63,7 @@ public class Detalle implements Serializable {
         if(this.pagos == null)
             this.pagos = new ArrayList<Haber>();
     }
+
     
     
     
