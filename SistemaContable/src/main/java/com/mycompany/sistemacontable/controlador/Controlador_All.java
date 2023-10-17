@@ -21,17 +21,28 @@ import com.mycompany.sistemacontable.persistencia.EmpleadoJpaController;
 import com.mycompany.sistemacontable.persistencia.HaberJpaController;
 import com.mycompany.sistemacontable.persistencia.PersonaJpaController;
 import com.mycompany.sistemacontable.persistencia.ProveedorJpaController;
+import com.mycompany.sistemacontable.vista.TiempoPro;
+import java.awt.AWTException;
+import java.awt.Dimension;
+import java.awt.Robot;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import javax.imageio.ImageIO;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.imageio.ImageIO;
 
 /**
  *
  * @author LegionXR
  */
+ 
 public class Controlador_All {
     
-   
+   TiempoPro time = new TiempoPro();
 
     List<Integer> lisx(String cedula) {
         List<Integer> lista = new ArrayList<>();
@@ -636,6 +647,13 @@ public class Controlador_All {
         return String.valueOf(Double.valueOf(sumadebe())-Double.valueOf(sumahaber()));
     }
     
+    public void capturarPantalla() throws Exception {
+        String nombre=new TiempoPro().getFechacomp1();
+       BufferedImage bufferedImage = (new Robot()).createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+ ImageIO.write(bufferedImage,"PNG", new File(nombre+".PNG"));
+}
+     
+  
 
    
     

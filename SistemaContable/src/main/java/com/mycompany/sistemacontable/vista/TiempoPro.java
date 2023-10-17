@@ -23,6 +23,16 @@ public class TiempoPro {
     String minuto = Integer.toString(fecha.get(Calendar.MINUTE));
     String segundo = Integer.toString(fecha.get(Calendar.SECOND));
     
+    
     String fechacomp = anio+" - 0"+mes+" - "+dia+" "+hora+":"+minuto+":"+segundo;
+    
+    String fechacomp1 = anio+"-0"+mes+"-"+dia+"-"+hora+"-"+minuto+"-"+segundo;
+
+    public String getFechacomp1() {
+        return fechacomp1;
+    }
+    
+    
+    
     
 }
