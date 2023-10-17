@@ -30,6 +30,8 @@ import java.util.List;
  * @author LegionXR
  */
 public class Controlador_All {
+    
+   
 
     List<Integer> lisx(String cedula) {
         List<Integer> lista = new ArrayList<>();
@@ -606,5 +608,37 @@ public class Controlador_All {
         return lx;
 
     }
+
+    public String sumadebe() {
+        double suma=0;
+        for (int i = 0; i < reflejar().size(); i++) {
+            suma=suma+reflejar().get(i).getValor();
+            
+        }
+        
+        
+        return String.valueOf(suma);
+    }
+    public String sumahaber() {
+        double suma=0;
+        for (int i = 0; i < reflejarHaber().size(); i++) {
+            suma=suma+reflejarHaber().get(i).getValor();
+            
+        }
+        
+        
+        return String.valueOf(suma);
+    }
+    
+    public String totals(){
+        
+        
+        return String.valueOf(Double.valueOf(sumadebe())-Double.valueOf(sumahaber()));
+    }
+    
+
+   
+    
+    
 
 }

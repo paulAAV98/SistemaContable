@@ -12,6 +12,7 @@ import com.mycompany.sistemacontable.modelo.Cliente;
 import com.mycompany.sistemacontable.modelo.Debe;
 import com.mycompany.sistemacontable.modelo.Persona;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -27,10 +28,13 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
     private String nombreCliente;
     private String apellidoCliente;
     private String cedulaCliente;
+     
+    
     
     public VtnBalanceDebe() {
         initComponents();
         metodo();
+        
         
     }
     
@@ -122,17 +126,7 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
 
         detalle.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txDebe.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        txDebe.setModel(new Tabla_Debe());
         jScrollPane1.setViewportView(txDebe);
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -266,6 +260,8 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+       
+       new VtnBalanceGeneral().setVisible(true);
         
         
         

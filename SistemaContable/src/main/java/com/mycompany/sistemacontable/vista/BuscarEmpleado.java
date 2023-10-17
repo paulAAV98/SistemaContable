@@ -15,9 +15,10 @@ public class BuscarEmpleado extends javax.swing.JFrame {
     /**
      * Creates new form BuscarEmpleado
      */
+
     public BuscarEmpleado() {
         initComponents();
-        
+     
     }
 
     /**
@@ -120,7 +121,7 @@ public class BuscarEmpleado extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       VtnBalanceHaber vtnHaber = new VtnBalanceHaber();
+       VtnBalanceHaber vtnHaber = new VtnBalanceHaber( );
        vtnHaber.setDatoCE(codigoE.getText());
        vtnHaber.setDatoNE(nombreE.getText());
        vtnHaber.setDatoAE(apellidoE.getText());

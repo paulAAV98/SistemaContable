@@ -28,6 +28,7 @@ public class BuscarCliente extends javax.swing.JFrame {
         initComponents();
         crear_lista();
         
+        
     }
     
     

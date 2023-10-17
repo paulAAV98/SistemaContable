@@ -35,10 +35,12 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
     private String codigoEmpleado;
     private String nombreEmpleado;
     private String apellidoEmpleado;
+   
 
     public VtnBalanceHaber() {
         initComponents();
         metodo();
+        
     }
 
     public void setDatoNP(String datoNP) {
@@ -157,21 +159,16 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         jLabel5.setText("DETALLE:");
 
-        txHaber.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        txHaber.setModel(new Tabla_Haber());
         jScrollPane1.setViewportView(txHaber);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton1.setText("REFLEJAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jToggleButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jToggleButton3.setText("AGREGAR");
@@ -461,6 +458,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Se hizo pago a un empleado");
             }
             txHaber.setModel(new Tabla_Haber(new Controlador_All().reflejarHaber()));
+            
         }
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
@@ -468,6 +466,12 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_comboPagoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        new VtnBalanceGeneral().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

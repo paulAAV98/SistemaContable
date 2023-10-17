@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import com.mycompany.sistemacontable.controlador.Controlador_All;
 import java.awt.BorderLayout;
 import javax.swing.JDesktopPane;
 
@@ -242,6 +243,7 @@ public class MenuVtn extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
+     
         VtnBalanceGeneral vtnBalGen = new VtnBalanceGeneral();
         //escritorio.add(vtnBalGen);
         vtnBalGen.setVisible(true);
