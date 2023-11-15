@@ -28,16 +28,9 @@ public class Detalle implements Serializable {
     @Column(name="det_id")
     private int id;
     
-   
+     @Column(name="det_nota")
+    private String nota;
     
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="det_numero")
-    private List<Debe> ingresos;
-    
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="det_numero")
-    private List<Haber> pagos;
-
     public int getId() {
         return id;
     }
@@ -45,24 +38,20 @@ public class Detalle implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+
+    public void setNota(String nota) {
+        this.nota = nota;
+    }
+
+    public String getNota() {
+        return nota;
+    }
     
-    public List<Debe> getIngresos() {
-        return ingresos;
-    }
+    
+    
+   
 
-    public void addIngresos(Debe debe){
-        if(this.ingresos == null)
-            this.ingresos = new ArrayList<Debe>();
-    }
-
-    public List<Haber> getPagos() {
-        return pagos;
-    }
-
-    public void addPagos(Haber haber){
-        if(this.pagos == null)
-            this.pagos = new ArrayList<Haber>();
-    }
+    
 
     
     

@@ -10,7 +10,7 @@ package com.mycompany.sistemacontable.modelo;
  */
 public class HaberT {
     
-    private int id;
+    private int id,det_id;
     
     private String nombre, apellido, tipoBeneficiario, detalle, tipoPago;
     
@@ -72,6 +72,15 @@ public class HaberT {
         System.out.println("valor");
         this.valor = valor;
     }
+
+    public void setDet_id(int det_id) {
+        this.det_id = det_id;
+    }
+
+    public int getDet_id() {
+        return det_id;
+    }
+    
     
     
     

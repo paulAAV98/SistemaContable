@@ -37,7 +37,14 @@ public class Debe implements Serializable {
     @OneToOne
     @JoinColumn(name="cli_cedula")
     private Cliente cliente;
-
+    
+     @OneToOne
+    @JoinColumn(name = "id_det")
+    private Detalle deta;
+     
+    @Column(name = "deb_estado")
+    private String estado;
+     
     public int getId() {
         return id;
     }
@@ -76,6 +83,22 @@ public class Debe implements Serializable {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public void setDeta(Detalle deta) {
+        this.deta = deta;
+    }
+
+    public Detalle getDeta() {
+        return deta;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getEstado() {
+        return estado;
     }
     
     

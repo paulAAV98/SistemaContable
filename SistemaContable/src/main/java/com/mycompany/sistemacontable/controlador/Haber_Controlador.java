@@ -36,5 +36,9 @@ public class Haber_Controlador {
     public Haber getHaber(Haber haber) {
         return habJpa.findHaber(haber.getId());
     }
+    
+    public Haber getHaber(int id) {
+        return habJpa.findHaber(id);
+    }
 
 }

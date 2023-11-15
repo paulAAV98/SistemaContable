@@ -4,9 +4,22 @@
  */
 package com.mycompany.sistemacontable.vista;
 
+import com.mycompany.sistemacontable.controlador.Balance_Controlador;
 import com.mycompany.sistemacontable.controlador.Controlador_All;
+import com.mycompany.sistemacontable.controlador.Debe_Controlador;
+import com.mycompany.sistemacontable.controlador.Detalle_Controlador;
+import com.mycompany.sistemacontable.controlador.Haber_Controlador;
+import com.mycompany.sistemacontable.modelo.Balance;
+import com.mycompany.sistemacontable.modelo.Debe;
+import com.mycompany.sistemacontable.modelo.DebeT;
+import com.mycompany.sistemacontable.modelo.Detalle;
+import com.mycompany.sistemacontable.modelo.Haber;
+import com.mycompany.sistemacontable.modelo.HaberT;
 import java.awt.AWTException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -69,7 +82,7 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
         tt = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        detbal = new javax.swing.JTextField();
         total = new javax.swing.JLabel();
         fecha = new javax.swing.JLabel();
 
@@ -305,7 +318,7 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(detbal, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(789, 789, 789)
                         .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -324,7 +337,7 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField5))
+                    .addComponent(detbal))
                 .addGap(10, 10, 10)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
@@ -342,8 +355,47 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        java.util.Date utilDate = new java.util.Date();
+       java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+         
+       List<DebeT>listadebe=new Controlador_All().reflejar();
+       List<HaberT>listahaber=new Controlador_All().reflejarHaber();
+        Balance bal=new Balance();
+        bal.setNota(detbal.getText());
+        bal.setFecha(sqlDate);
+        bal.setTotal(Double.parseDouble(tt.getText()));
+        Detalle det=new Detalle();
+        det.setId(0);
+        det.setNota("como vas");
+        new Detalle_Controlador().crear(det);
+        bal.setDetalle(det);
+         for (int i = 0; i < listadebe.size(); i++) {
+              Debe debe =new Debe_Controlador().getDebe(listadebe.get(i).getId());
+              debe.setEstado("I");
+              debe.setDeta(det);
+            try {
+                new Debe_Controlador().editar(debe);
+            } catch (Exception ex) {
+                Logger.getLogger(VtnBalanceGeneral.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+         
+         for (int i = 0; i < listahaber.size(); i++) {
+              Haber haber =new Haber_Controlador().getHaber(listahaber.get(i).getId());
+              haber.setDeta(det);
+              haber.setEstado("I");
+            try {
+                new Haber_Controlador().editar(haber);
+            } catch (Exception ex) {
+                Logger.getLogger(VtnBalanceGeneral.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+         
+         new Balance_Controlador().crear(bal);
+       
         
-
      /*   try {
             new Controlador_All().capturarPantalla();
         } catch (Exception ex) {
@@ -385,6 +437,7 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel debe;
+    private javax.swing.JTextField detbal;
     private javax.swing.JLabel fecha;
     private javax.swing.JLabel haber;
     private javax.swing.JButton jButton1;
@@ -404,7 +457,6 @@ public class VtnBalanceGeneral extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel tb;
     private javax.swing.JLabel th;
     private javax.swing.JLabel total;

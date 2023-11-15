@@ -249,6 +249,7 @@ public class VtnBalanceDebe extends javax.swing.JFrame {
         deb.setTipoPago(comboTipo.getSelectedItem().toString());
         deb.setValor(Double.parseDouble(valor.getText()));
         deb.setDetalle(detalle.getText());
+        deb.setEstado("A");
         Debe_Controlador debC = new Debe_Controlador();
         debC.crear(deb);
         System.out.println("Resultado del label");

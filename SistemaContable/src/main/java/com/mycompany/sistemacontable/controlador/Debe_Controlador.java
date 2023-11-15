@@ -37,4 +37,8 @@ public class Debe_Controlador {
         return debJpa.findDebe(debe.getId());
     }
     
+    public Debe getDebe(int id){
+        return debJpa.findDebe(id);
+    }
+    
 }

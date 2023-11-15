@@ -45,6 +45,13 @@ public class Haber implements Serializable{
     @OneToOne
     @JoinColumn(name="emp_codigoEmpleado")
     private Empleado empleado;
+    
+    @OneToOne
+    @JoinColumn(name = "id_det")
+    private Detalle deta;
+    
+    @Column(name = "hab_estado")
+    private String estado;
 
     public Haber() {
     }
@@ -57,6 +64,18 @@ public class Haber implements Serializable{
         this.valor = valor;
         this.proveedor = proveedor;
         this.empleado = empleado;
+        
+    }
+    
+    public Haber(int id, String detalle, String tipoBeneficiario, String tipoPago, double valor, Proveedor proveedor, Empleado empleado, Detalle det) {
+        this.id = id;
+        this.detalle = detalle;
+        this.tipoBeneficiario = tipoBeneficiario;
+        this.tipoPago = tipoPago;
+        this.valor = valor;
+        this.proveedor = proveedor;
+        this.empleado = empleado;
+        this.deta=det;
     }
 
     public int getId() {
@@ -113,6 +132,22 @@ public class Haber implements Serializable{
 
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
+    }
+
+    public void setDeta(Detalle deta) {
+        this.deta = deta;
+    }
+
+    public Detalle getDeta() {
+        return deta;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getEstado() {
+        return estado;
     }
     
     

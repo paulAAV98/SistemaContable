@@ -10,7 +10,7 @@ package com.mycompany.sistemacontable.modelo;
  */
 public class DebeT {
     
-    private int id;
+    private int id,det_id;
     
     private String nombre, apellido, detalle, tipoPago;
     
@@ -63,5 +63,14 @@ public class DebeT {
     public void setValor(double valor) {
         this.valor = valor;
     }
+
+    public void setDet_id(int det_id) {
+        this.det_id = det_id;
+    }
+
+    public int getDet_id() {
+        return det_id;
+    }
+    
 
 }

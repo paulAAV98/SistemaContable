@@ -320,6 +320,7 @@ public class VtnBalanceHaber extends javax.swing.JFrame {
         per = new Persona_Controlador().getPersona(empt.getPersona().getId());
          */
         Haber hab = new Haber();
+        hab.setEstado("A");
         String pago = (String) comboPago.getSelectedItem();
         /*
         if (apellidoemp.getText().equals("")) {

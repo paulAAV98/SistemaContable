@@ -47,7 +47,6 @@ public class Balance implements Serializable {
     private Detalle detalle;
     
     
-
     public int getId() {
         return id;
     }

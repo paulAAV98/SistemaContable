@@ -478,24 +478,21 @@ public class Controlador_All {
         List<Cliente> listac = new ClienteJpaController().getList();
         ArrayList<DebeT> lx = new ArrayList<>();
 
-        System.out.println("****** LX *****");
-        System.out.println(lx.size() + "lista LX");
-        System.out.println("****** DEBE *****");
-        System.out.println(listad.size() + "lista DEBE");
-        System.out.println("****** CLIENTE *****");
-        System.out.println(listac.size() + "lista CLIENTE");
+       
 
         int id = 0;
 
         for (int i = 0; i < listac.size(); i++) {
             for (int j = 0; j < listad.size(); j++) {
-                if (listac.get(i).getId() == listad.get(j).getCliente().getId()) {
+                if (listac.get(i).getId() == listad.get(j).getCliente().getId()&& listad.get(j).getEstado().equals("A")) {
                     DebeT deb = new DebeT();
+                    deb.setId(listad.get(j).getId());
                     deb.setNombre(listad.get(j).getCliente().getPersona().getNombre());
                     deb.setApellido(listad.get(j).getCliente().getPersona().getApellido());
                     deb.setTipoPago(listad.get(j).getTipoPago());
                     deb.setValor(listad.get(j).getValor());
                     deb.setDetalle(listad.get(j).getDetalle());
+                   // deb.setDet_id(listad.get(j).getDeta().getId());
 
                     lx.add(deb);
                 }
@@ -510,54 +507,53 @@ public class Controlador_All {
         List<Empleado> listae = new EmpleadoJpaController().getList();
         ArrayList<HaberT> lh = new ArrayList<>();
         int id = 0;
-        System.out.println("****** LX *****");
-        System.out.println(lh.size() + "lista LX");
-        System.out.println("****** HABER *****");
-        System.out.println(listah.size() + "lista HABER");
-        System.out.println("****** EMPLEADO *****");
-        System.out.println(listae.size() + " - lista EMPLEADO");
-        System.out.println("****** PROVEEDOR *****");
-        System.out.println(listap.size() + " - lista PROVEEDOR");
+        
 
         for (int i = 0; i < listah.size(); i++) {
             
             
             for (int j = 0; j < listae.size(); j++) {
-                if (listah.get(i).getEmpleado().getId()==listae.get(j).getId() && listae.get(j).getId()!=1  ) {
+                if (listah.get(i).getEmpleado().getId()==listae.get(j).getId() && listae.get(j).getId()!=1  && listah.get(i).getEstado().equals("A") ) {
                     HaberT hab = new HaberT();
+                    hab.setId(listah.get(i).getId());
                     hab.setNombre(listah.get(i).getEmpleado().getPersona().getNombre());
                     hab.setApellido(listah.get(i).getEmpleado().getPersona().getApellido());
                     hab.setTipoBeneficiario(listah.get(i).getTipoBeneficiario());
                     hab.setDetalle(listah.get(i).getDetalle());
                     hab.setTipoPago(listah.get(i).getTipoPago());
                     hab.setValor(listah.get(i).getValor());
+                   // hab.setDet_id(listah.get(i).getDeta().getId());
 
                     lh.add(hab);
                 
             }
                 }
                    for (int k = 0; k < listap.size(); k++) {
-                       if (listah.get(i).getProveedor().getId()==listap.get(k).getId() && listap.get(k).getId()!=2  ) {
+                       if (listah.get(i).getProveedor().getId()==listap.get(k).getId() && listap.get(k).getId()!=2 && listah.get(i).getEstado().equals("A") ) {
                         HaberT hab = new HaberT();
-                    hab.setNombre(listah.get(i).getProveedor().getPersona().getNombre());
+                    hab.setId(listah.get(i).getId());
+                        hab.setNombre(listah.get(i).getProveedor().getPersona().getNombre());
                     hab.setApellido(listah.get(i).getProveedor().getPersona().getApellido());
                     hab.setTipoBeneficiario(listah.get(i).getTipoBeneficiario());
                     hab.setDetalle(listah.get(i).getDetalle());
                     hab.setTipoPago(listah.get(i).getTipoPago());
                     hab.setValor(listah.get(i).getValor());
+                   // hab.setDet_id(listah.get(i).getDeta().getId());
 
                     lh.add(hab);
                    } 
                 }
                    for (int l = 0; l < listap.size(); l++) {
-                       if (listah.get(i).getProveedor().getId()==2 && listap.get(l).getId()==listah.get(i).getProveedor().getId() && listah.get(i).getEmpleado().getId()==1 && listah.get(i).getEmpleado().getId()==listae.get(l).getId()  ) {
+                       if (listah.get(i).getProveedor().getId()==2 && listap.get(l).getId()==listah.get(i).getProveedor().getId() && listah.get(i).getEmpleado().getId()==1 && listah.get(i).getEmpleado().getId()==listae.get(l).getId() && listah.get(i).getEstado().equals("A") ) {
                         HaberT hab = new HaberT();
-                    hab.setNombre(listah.get(i).getProveedor().getPersona().getNombre());
+                   hab.setId(listah.get(i).getId());
+                        hab.setNombre(listah.get(i).getProveedor().getPersona().getNombre());
                     hab.setApellido(listah.get(i).getProveedor().getPersona().getApellido());
                     hab.setTipoBeneficiario(listah.get(i).getTipoBeneficiario());
                     hab.setDetalle(listah.get(i).getDetalle());
                     hab.setTipoPago(listah.get(i).getTipoPago());
                     hab.setValor(listah.get(i).getValor());
+                   // hab.setDet_id(listah.get(i).getDeta().getId());
 
                     lh.add(hab);
                    } 
@@ -623,6 +619,7 @@ public class Controlador_All {
     public String sumadebe() {
         double suma=0;
         for (int i = 0; i < reflejar().size(); i++) {
+            
             suma=suma+reflejar().get(i).getValor();
             
         }
@@ -654,9 +651,139 @@ public class Controlador_All {
 }
      
   
+ public ArrayList<HaberT> listabalanceH(int id_det) {
+        
+        ArrayList<HaberT> lh = new ArrayList<>();
+        ArrayList<HaberT> lh1 = reflejarHaberB();
+        for (int i = 0; i < lh1.size(); i++) {
+         
+            if(lh1.get(i).getDet_id()==id_det){
+                
+                lh.add(lh1.get(i));
+            }
+                    
+     }
+        
 
+        
+        
+        return lh;
+    }
+ 
+ public ArrayList<DebeT> listabalanceD(int id_det) {
+        
+        ArrayList<DebeT> ld = new ArrayList<>();
+        ArrayList<DebeT> ld1 = reflejarB();
+        for (int i = 0; i < ld1.size(); i++) {
+         
+            if(ld1.get(i).getDet_id()==id_det){
+                
+                ld.add(ld1.get(i));
+            }
+                    
+     }
+        
+
+        
+        
+        return ld;
+    }
    
-    
+     public ArrayList<DebeT> reflejarB() {
+        List<Debe> listad = new DebeJpaController().getList();
+        List<Cliente> listac = new ClienteJpaController().getList();
+        ArrayList<DebeT> lx = new ArrayList<>();
+
+       
+
+        int id = 0;
+
+        for (int i = 0; i < listac.size(); i++) {
+            for (int j = 0; j < listad.size(); j++) {
+                if (listac.get(i).getId() == listad.get(j).getCliente().getId()) {
+                    DebeT deb = new DebeT();
+                    deb.setId(listad.get(j).getId());
+                    deb.setNombre(listad.get(j).getCliente().getPersona().getNombre());
+                    deb.setApellido(listad.get(j).getCliente().getPersona().getApellido());
+                    deb.setTipoPago(listad.get(j).getTipoPago());
+                    deb.setValor(listad.get(j).getValor());
+                    deb.setDetalle(listad.get(j).getDetalle());
+                    deb.setDet_id(listad.get(j).getDeta().getId());
+
+                    lx.add(deb);
+                }
+            }
+        }
+        return lx;
+    }
+
+    public ArrayList<HaberT> reflejarHaberB() {
+        List<Haber> listah = new HaberJpaController().getList();
+        List<Proveedor> listap = new ProveedorJpaController().getList();
+        List<Empleado> listae = new EmpleadoJpaController().getList();
+        ArrayList<HaberT> lh = new ArrayList<>();
+        int id = 0;
+        
+
+        for (int i = 0; i < listah.size(); i++) {
+            
+            
+            for (int j = 0; j < listae.size(); j++) {
+                if (listah.get(i).getEmpleado().getId()==listae.get(j).getId() && listae.get(j).getId()!=1  ) {
+                    HaberT hab = new HaberT();
+                    hab.setId(listah.get(i).getId());
+                    hab.setNombre(listah.get(i).getEmpleado().getPersona().getNombre());
+                    hab.setApellido(listah.get(i).getEmpleado().getPersona().getApellido());
+                    hab.setTipoBeneficiario(listah.get(i).getTipoBeneficiario());
+                    hab.setDetalle(listah.get(i).getDetalle());
+                    hab.setTipoPago(listah.get(i).getTipoPago());
+                    hab.setValor(listah.get(i).getValor());
+                    hab.setDet_id(listah.get(i).getDeta().getId());
+
+                    lh.add(hab);
+                
+            }
+                }
+                   for (int k = 0; k < listap.size(); k++) {
+                       if (listah.get(i).getProveedor().getId()==listap.get(k).getId() && listap.get(k).getId()!=2  ) {
+                        HaberT hab = new HaberT();
+                    hab.setId(listah.get(i).getId());
+                        hab.setNombre(listah.get(i).getProveedor().getPersona().getNombre());
+                    hab.setApellido(listah.get(i).getProveedor().getPersona().getApellido());
+                    hab.setTipoBeneficiario(listah.get(i).getTipoBeneficiario());
+                    hab.setDetalle(listah.get(i).getDetalle());
+                    hab.setTipoPago(listah.get(i).getTipoPago());
+                    hab.setValor(listah.get(i).getValor());
+                    hab.setDet_id(listah.get(i).getDeta().getId());
+
+                    lh.add(hab);
+                   } 
+                }
+                   for (int l = 0; l < listap.size(); l++) {
+                       if (listah.get(i).getProveedor().getId()==2 && listap.get(l).getId()==listah.get(i).getProveedor().getId() && listah.get(i).getEmpleado().getId()==1 && listah.get(i).getEmpleado().getId()==listae.get(l).getId()  ) {
+                        HaberT hab = new HaberT();
+                   hab.setId(listah.get(i).getId());
+                        hab.setNombre(listah.get(i).getProveedor().getPersona().getNombre());
+                    hab.setApellido(listah.get(i).getProveedor().getPersona().getApellido());
+                    hab.setTipoBeneficiario(listah.get(i).getTipoBeneficiario());
+                    hab.setDetalle(listah.get(i).getDetalle());
+                    hab.setTipoPago(listah.get(i).getTipoPago());
+                    hab.setValor(listah.get(i).getValor());
+                    hab.setDet_id(listah.get(i).getDeta().getId());
+
+                    lh.add(hab);
+                   } 
+                }
+                
+            
+            
+            
+                
+        }
+
+        
+        return lh;
+    }
     
 
 }

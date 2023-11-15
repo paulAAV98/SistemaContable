@@ -24,6 +24,8 @@ public class MenuVtn extends javax.swing.JFrame {
       ActualizarProveedor actPro = new ActualizarProveedor();
       ActualizarEmpleado actEmp = new ActualizarEmpleado();
       RegistrarEmpleado regEmp = new RegistrarEmpleado();
+      Historial_Balance hisBal=new Historial_Balance();
+      
      
     
 
@@ -57,6 +59,7 @@ public class MenuVtn extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         Balance = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEMA BALANCE");
@@ -65,7 +68,7 @@ public class MenuVtn extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
+            .addGap(0, 1686, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,6 +145,14 @@ public class MenuVtn extends javax.swing.JFrame {
         });
         Balance.add(jMenuItem5);
 
+        jMenuItem8.setText("Historial Balance");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        Balance.add(jMenuItem8);
+
         jMenuBar1.add(Balance);
 
         setJMenuBar(jMenuBar1);
@@ -169,6 +180,7 @@ public class MenuVtn extends javax.swing.JFrame {
         this.escritorio.remove(  actPro);
          this.escritorio.remove(  actEmp);
           this.escritorio.remove(  regEmp);
+           
         if (reg.isClosed()) {
 
             this.escritorio.remove(reg);
@@ -189,6 +201,7 @@ public class MenuVtn extends javax.swing.JFrame {
         this.escritorio.remove(  actPro);
          this.escritorio.remove(  actEmp);
           this.escritorio.remove(  regEmp);
+          
       
                 
        if (act.isClosed()) {
@@ -209,6 +222,7 @@ public class MenuVtn extends javax.swing.JFrame {
           this.escritorio.remove(  actPro);
            this.escritorio.remove(  actEmp);
             this.escritorio.remove(  regEmp);
+     
         
        if (regPro.isClosed()) {
 
@@ -230,6 +244,7 @@ public class MenuVtn extends javax.swing.JFrame {
         this.escritorio.remove(  regPro);
          this.escritorio.remove(  actEmp);
           this.escritorio.remove(  regEmp);
+      
        if (actPro.isClosed()) {
 
             this.escritorio.remove(actPro);
@@ -257,6 +272,7 @@ public class MenuVtn extends javax.swing.JFrame {
         this.escritorio.remove(  regPro);
         this.escritorio.remove(  actPro);
          this.escritorio.remove(  regEmp);
+          
        if (actEmp.isClosed()) {
 
             this.escritorio.remove(actEmp);
@@ -276,6 +292,7 @@ public class MenuVtn extends javax.swing.JFrame {
         this.escritorio.remove(  regPro);
         this.escritorio.remove(  actPro);
          this.escritorio.remove(  actEmp);
+         
        if (regEmp.isClosed()) {
 
             this.escritorio.remove(regEmp);
@@ -286,6 +303,12 @@ public class MenuVtn extends javax.swing.JFrame {
         }
         regEmp.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        
+        hisBal.setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,5 +328,6 @@ public class MenuVtn extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
 }
